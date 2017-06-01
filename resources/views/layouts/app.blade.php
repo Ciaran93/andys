@@ -48,8 +48,8 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                         
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="/admin/items">Menu</a></li>
+                        <li><a href="/admin/about">About</a></li>
 
 
                         

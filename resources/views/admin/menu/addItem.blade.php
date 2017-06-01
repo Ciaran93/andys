@@ -1,7 +1,7 @@
 
     
     
-    {{ Form::open(array('class' => 'form')) }}
+    {{ Form::open(array('route' => 'items.add', 'class' => 'form')) }}
     <div class="form-group">
         {{Form::label('name', 'Name:') }}
         {{Form::text('name',null, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}

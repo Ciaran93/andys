@@ -21,3 +21,4 @@ Route::get('/admin', 'AdminController@index');
 
 Route::get('/admin/items', 'AdminController@items');
 
+Route::post('/admin/items', 'ItemController@addItem')->name('items.add');;

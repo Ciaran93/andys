@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\ItemController;
 
 class AdminController extends Controller
 {
@@ -11,13 +12,14 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        return view('home');
+        return view('admin.home');
+    }
+
+    public function items(){
+        $itemController = new ItemController();
+        return $itemController->index();
     }
 }

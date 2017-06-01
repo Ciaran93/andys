@@ -22,4 +22,9 @@ class AdminController extends Controller
         $itemController = new ItemController();
         return $itemController->index();
     }
+
+    public function about(){
+        $aboutController = new AboutController();
+        return $aboutController->index();
+    }
 }

@@ -1,0 +1,3 @@
+INSERT INTO menu (name, description) VALUES ('Main menu', 'main menu menu');
+INSERT INTO menu_section (name, description, menu_id) VALUES ('Starters', 'starters', 1);
+INSERT INTO menu_item (name, description, section_id, price) VALUES ('Soup', 'soup', 1, 3.5);

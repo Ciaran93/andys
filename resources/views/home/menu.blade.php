@@ -1,3 +1,5 @@
+
+
 <div id="fh5co-menus" data-section="menu">
     <div class="container">
         <div class="row text-center fh5co-heading row-padded">
@@ -11,7 +13,24 @@
                 <div class="fh5co-food-menu to-animate-2">
                     <h2 class="fh5co-drinks">Starters</h2>
                     <ul>
-                 
+                    @foreach( $items as $item)
+                        @if($item->section_id === 1 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    £{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
             </div>
@@ -19,7 +38,24 @@
                 <div class="fh5co-food-menu to-animate-2">
                     <h2 class="fh5co-dishes">Steak</h2>
                     <ul>
-            
+                    @foreach( $items as $item)
+                        @if($item->section_id === 2 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    £{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
                     </ul>
                 </div>
             </div>
@@ -27,7 +63,24 @@
                 <div class="fh5co-food-menu to-animate-2">
                     <h2 class="fh5co-drinks">Poultry</h2>
                     <ul>
-                        
+                       @foreach( $items as $item)
+                        @if($item->section_id === 3 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    £{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach 
                     </ul>
                 </div>
             </div>
@@ -35,26 +88,24 @@
                 <div class="fh5co-food-menu to-animate-2">
                     <h2 class="fh5co-dishes">Sides</h2>
                     <ul>
-
                     @foreach( $items as $item)
-                        <li>
-                            <div class="fh5co-food-desc">
-                                <figure>
-                                    <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
-                                </figure>
-                                <div>
-                                    <h3>{{ $item->name}}</h3>
-                                    <p>{{ $item->description }}</p>
+                        @if($item->section_id === 5 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <!--<p>{{ $item->description }}</p>-->
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="fh5co-food-pricing">
-                                £{{ $item->price}}                               
-                            </div>
-                        </li>
-
+                                <div class="fh5co-food-pricing">
+                                    £{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
                     @endforeach
-                        
-                        
                     </ul>
                 </div>
             </div>

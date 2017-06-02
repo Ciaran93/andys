@@ -5,6 +5,7 @@
 
 	@include('home.nav')
 	@include('home.about')
+	@include('home.quote')
 	@include('home.featured')
 	@include('home.menu')
 	@include('home.reserve')

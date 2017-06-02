@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 <div class="fh5co-food-pricing">
-                                    £{{ $item->price}}                               
+                                    &euro;{{ $item->price}}                               
                                 </div>
                             </li>
                         @endif
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 <div class="fh5co-food-pricing">
-                                    £{{ $item->price}}                               
+                                    &euro;{{ $item->price}}                               
                                 </div>
                             </li>
                         @endif
@@ -106,7 +106,7 @@
                                     </div>
                                 </div>
                                 <div class="fh5co-food-pricing">
-                                    £{{ $item->price}}                               
+                                    &euro;{{ $item->price}}                               
                                 </div>
                             </li>
                         @endif
@@ -114,11 +114,12 @@
                     </ul>
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div  class="fh5co-food-menu to-animate-2">
-                    <h2 class="fh5co-dishes">Sides</h2>
+                    <h2 class="fh5co-drinks">Sides</h2>
                     <ul>
-                    @foreach( $items as $item)
+                       @foreach( $items as $item)
                         @if($item->section_id === 5 )
                             <li>
                                 <div class="fh5co-food-desc">
@@ -131,11 +132,37 @@
                                     </div>
                                 </div>
                                 <div class="fh5co-food-pricing">
-                                    £{{ $item->price}}                               
+                                    &euro;{{ $item->price}}                               
                                 </div>
                             </li>
                         @endif
-                    @endforeach
+                    @endforeach 
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div  class="fh5co-food-menu to-animate-2">
+                    <h2 class="fh5co-drinks">Fish</h2>
+                    <ul>
+                       @foreach( $items as $item)
+                        @if($item->section_id === 3 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    &euro;{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach 
                     </ul>
                 </div>
             </div>

@@ -22,7 +22,7 @@ class AboutController extends Controller
     public function updateAbout(Request $request){
 
         $about = new About();
-        $about->title = "About";//
+        $about->title = "About";
         $about->content = $request->content;
         $about->image_id = 1;
         $about->save();

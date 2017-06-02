@@ -23,6 +23,10 @@ class ItemController extends Controller
         return DB::table('menu_section')->get();
     }
 
+    public function getFeaturedDishes(){
+        return Item::where('featured', 1)->get();
+    }
+
     public function addItem(Request $request){
 
         $item = new Item();

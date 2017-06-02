@@ -3,17 +3,22 @@
 @section('content')
 
 <div class="col-md-12">
-<h1>Update About</h1>
+<h1>Update Foods Information</h1>
 
     <h2>Current About</h2>
-    <p>{{ $about->content }}</p>
-    <br>
-    <hr>
+    @foreach($foods as $food)
+
+    <h2>{{ $food->name}}</h2>
+    <p>{{ $food->description }}</p>
+
+    @endforeach
+
+
 
     {{ Form::open(array('route' => 'about.update', 'class' => 'form')) }}
     <div class="form-group">
         {{Form::label('content', 'Content:') }}
-        {{Form::textarea('content',$about->content, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
+        {{Form::textarea('content',null, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
     </div>
     <div class="form-group">
         {{Form::label('image', 'Image link:') }}

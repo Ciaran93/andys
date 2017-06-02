@@ -14,10 +14,11 @@ class HomeController extends Controller
     {
         $itemController = new ItemController();
         $items = $itemController->getAllItems();
+        $itemsFeatured = $itemController->getFeaturedDishes();
         $aboutController = new AboutController();
         $about = $aboutController->getLastRow();
 
-        return view('home',compact('items','about'));
+        return view('home',compact('items','about', 'itemsFeatured'));
     }
 
 

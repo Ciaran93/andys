@@ -18,6 +18,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/items', 'AdminController@items');
 Route::get('/admin/about', 'AdminController@about');
+Route::get('/admin/foods', 'AdminController@foods');
 
 
 // POSTS

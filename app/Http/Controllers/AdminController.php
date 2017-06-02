@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\FoodsInfoController;
 
 class AdminController extends Controller
 {
@@ -26,5 +27,11 @@ class AdminController extends Controller
     public function about(){
         $aboutController = new AboutController();
         return $aboutController->index();
+    }
+
+    public function foods(){
+        $foodsInfo = new FoodsInfoController();
+        // echo 'here'; exit;
+        return $foodsInfo->index();
     }
 }

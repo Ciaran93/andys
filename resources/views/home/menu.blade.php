@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 <script>
     function openMenu(menuName) {
     var i;
@@ -29,7 +21,8 @@
   <button class="w3-bar-item w3-button" onclick="openMenu('Starters')">Starters</button>
   <button class="w3-bar-item w3-button" onclick="openMenu('Mains')">Mains</button>
   <button class="w3-bar-item w3-button" onclick="openMenu('Desserts')">Desserts</button>
-  <button class="w3-bar-item w3-button" onclick="openMenu('SetMenu')">Set Menu</button>
+  <button class="w3-bar-item w3-button" onclick="openMenu('SetMenu')">Private Dining</button>
+  <button class="w3-bar-item w3-button" onclick="openMenu('Drinks')">Drink</button>
 </div>
 
 

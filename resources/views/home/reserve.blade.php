@@ -12,11 +12,11 @@
 						<ul class="fh5co-contact-info">
 							<li class="fh5co-contact-address ">
 								<i class="icon-home"></i>
-								5555 Love Paradise 56 New Clity 5655, <br>Excel Tower United Kingdom
+								12 Market Street, Monaghan,<br>Ireland
 							</li>
-							<li><i class="icon-phone"></i> (123) 465-6789</li>
-							<li><i class="icon-envelope"></i>info@freehtml5.co</li>
-							<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>
+							<li><i class="icon-phone"></i>+353 47 82277</li>
+							<li><i class="icon-envelope"></i>info@andys.com</li>
+							<!--<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>-->
 						</ul>
 					</div>
 					<div class="col-md-6 to-animate-2">
@@ -59,3 +59,5 @@
 
 		
 	</div>
+
+

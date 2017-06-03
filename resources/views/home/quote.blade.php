@@ -7,18 +7,18 @@
                     
                     <li>
                         <blockquote>
-                            <p>&ldquo;Cooking is an art, but all art requires knowing something about the techniques and materials&rdquo;</p>
-                            <p class="quote-author">&mdash; Nathan Myhrvold</p>
+                            <p>&ldquo;The service we received and food we chose was brilliant! Thank you so much for your excellent customer service!&rdquo;</p>
+                            <p class="quote-author">&mdash; Tripadvisor</p>
                         </blockquote>
                     </li>
                     <li>
                         <blockquote>
-                            <p>&ldquo;Give a man food, and he can eat for a day. Give a man a job, and he can only eat for 30 minutes on break.&rdquo;</p>
-                            <p class="quote-author">&mdash; Lev L. Spiro</p>
+                            <p>&ldquo;The food is delicious, fresh, and gourmet quality. The desserts are divine. The ambiance is beautiful and friendly&rdquo;</p>
+                            <p class="quote-author">&mdash; Tripadvisor</p>
                         </blockquote>
                     </li>
-                    <li>
-                        <blockquote>
+                    <!--<li>-->
+                        <!--<blockquote>
                             <p>&ldquo;Find something you’re passionate about and keep tremendously interested in it.&rdquo;</p>
                             <p class="quote-author">&mdash; Julia Child</p>
                         </blockquote>
@@ -28,7 +28,7 @@
                             <p>&ldquo;Never work before breakfast; if you have to work before breakfast, eat your breakfast first.&rdquo;</p>
                             <p class="quote-author">&mdash; Josh Billings</p>
                         </blockquote>
-                    </li>
+                    </li>-->
                     
                     
                 </ul>

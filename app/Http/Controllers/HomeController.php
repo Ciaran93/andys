@@ -22,5 +22,12 @@ class HomeController extends Controller
     }
 
 
+    public function about(){
+        return view('home.aboutSingle');
+    }
+
+    public function history(){
+        return view('home.history');
+    }
 
 }

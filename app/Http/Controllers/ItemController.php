@@ -9,7 +9,7 @@ class ItemController extends Controller
 {
 
     public function index(){
-        $items = $this->getAllItems();
+        $items = $this->getNonCeasedItems();
         $sections = $this->getAllSections();
 
         return view('admin.menu.menuitem', compact('items', 'sections'));
@@ -18,7 +18,9 @@ class ItemController extends Controller
     public function getAllItems(){
         return Item::all();
     }
-
+    public function getNonCeasedItems(){
+        return Item::where('ceased', 0)->get();
+    }
     public function getAllSections(){
         return DB::table('menu_section')->get();
     }
@@ -65,5 +67,12 @@ class ItemController extends Controller
         $item->save();
         return $this->index();
     }    
+    public function delete(Request $request){
+
+        $item = Item::findOrFail($request->id);
+        $item->ceased = true;
+        $item->save();
+        return $this->index();
+    } 
 
 }

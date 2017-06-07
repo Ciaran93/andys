@@ -12,8 +12,10 @@
         <th>GF</th>
         <th>VEG</th>
         <th>EDIT</th>
+        <th>Delete</th>
     </tr>
 </thead>
+
 <tbody>
     @foreach ($items as $item)
         @if($item->section_id === $section->id)
@@ -26,6 +28,7 @@
                 <td>{{ $item->gf }}</td>
                 <td>{{ $item->veg }}</td>
                 <td><a href="/admin/editItem/{{$item->id}}" class="button">Edit</a></td>
+                <td><a href="/admin/delete/{{$item->id}}" class="button" onclick="comfirmDelete();">DELETE</a></td>
             </tr>
         @endif
     @endforeach
@@ -34,3 +37,13 @@
 </table>
 
 @endforeach
+
+<script>
+public function comfirmDelete(){
+    if (confirm("Click OK to continue?")){
+         $('form#delete').submit();
+      }
+}
+
+});
+</script>

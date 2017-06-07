@@ -22,6 +22,7 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/admin/items', 'AdminController@items');
 Route::get('/admin/about', 'AdminController@about');
 Route::get('/admin/foods', 'AdminController@foods');
+Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
 Route::get('/admin/editItem/{id}','AdminController@editItem');
 
 // POSTS

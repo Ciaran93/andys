@@ -22,7 +22,7 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/admin/items', 'AdminController@items');
 Route::get('/admin/about', 'AdminController@about');
 Route::get('/admin/foods', 'AdminController@foods');
-
+Route::get('/admin/editItem/{id}','AdminController@editItem');
 
 // POSTS
 
@@ -31,3 +31,4 @@ Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update')
 
 // Items
 Route::post('/admin/items', 'ItemController@addItem')->name('items.add');
+Route::post('/admin/', 'ItemController@update')->name('items.update');

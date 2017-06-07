@@ -34,4 +34,9 @@ class AdminController extends Controller
         // echo 'here'; exit;
         return $foodsInfo->index();
     }
+
+    public function editItem($id){
+        $itemController = new ItemController();
+        return $itemController->editItem($id);
+    }
 }

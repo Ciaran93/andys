@@ -38,11 +38,32 @@ class ItemController extends Controller
         $item->gf = ($request->gf == null ? false : true);
         $item->veg = ($request->veg == null ? false : true);
         
-       $item->save();
-
+        $item->save();
         return $this->index();
-
-        
     }
+
+    public function editItem($id){
+
+        $item = Item::findOrFail($id);
+        $sections = $this->getAllSections();
+        // echo '<pre>';
+        // print_r($item); exit;
+        return view('admin.menu.editItem',compact('item','sections'));
+    }
+
+    public function update(Request $request){
+
+        $item = Item::findOrFail($request->id);
+        $item->name = $request->name;
+        $item->description = $request->description;
+        $item->price = $request->price;
+        $item->section_id = $request->section_id;
+        $item->featured = ($request->featured == null ? false : true);
+        $item->gf = ($request->gf == null ? false : true);
+        $item->veg = ($request->veg == null ? false : true);
+        
+        $item->save();
+        return $this->index();
+    }    
 
 }

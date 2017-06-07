@@ -25,11 +25,11 @@
                 <td>{{ $item->featured }}</td>
                 <td>{{ $item->gf }}</td>
                 <td>{{ $item->veg }}</td>
-                <td><button type="Submit">Edit</button></td>
+                <td><a href="/admin/editItem/{{$item->id}}" class="button">Edit</a></td>
             </tr>
         @endif
     @endforeach
-    
+    <!--<button type="button" ><a href="/admin/editItem/{{$item->id}}">Edit</a></button>-->
 </tbody>
 </table>
 

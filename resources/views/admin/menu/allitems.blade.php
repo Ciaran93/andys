@@ -11,6 +11,7 @@
         <th>Featured</th>
         <th>GF</th>
         <th>VEG</th>
+        <th>EDIT</th>
     </tr>
 </thead>
 <tbody>
@@ -24,6 +25,7 @@
                 <td>{{ $item->featured }}</td>
                 <td>{{ $item->gf }}</td>
                 <td>{{ $item->veg }}</td>
+                <td><button type="Submit">Edit</button></td>
             </tr>
         @endif
     @endforeach

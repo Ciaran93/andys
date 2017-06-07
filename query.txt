@@ -1,3 +1,8 @@
 INSERT INTO menu (name, description) VALUES ('Main menu', 'main menu menu');
 INSERT INTO menu_section (name, description, menu_id) VALUES ('Starters', 'starters', 1);
 INSERT INTO menu_item (name, description, section_id, price) VALUES ('Soup', 'soup', 1, 3.5);
+
+
+insert into foods_info (title,description) VALUES ('Steak','Our premium selected certified irish beef is matured in-house for a minimum of 30 days to develop flavours and to tenderise. beef is stored in our new custom built temperature and humidity controlled cold room. Beef is butchered in-house to deliver the best possible steak.');
+
+

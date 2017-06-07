@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
 
 
-    public function index()
+    public function willBeindex()
     {
         $itemController = new ItemController();
         $items = $itemController->getAllItems();
@@ -19,6 +19,10 @@ class HomeController extends Controller
         $about = $aboutController->getLastRow();
 
         return view('home',compact('items','about', 'itemsFeatured'));
+    }
+    public function index(){
+        return view('comingsoon');
+        
     }
 
 

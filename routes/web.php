@@ -13,6 +13,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('/site', 'HomeController@willBeindex');
 Route::get('/about', 'HomeController@about');
 Route::get('/history', 'HomeController@history');
 

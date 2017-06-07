@@ -22,7 +22,7 @@
   <button class="w3-bar-item w3-button" onclick="openMenu('Mains')">Mains</button>
   <button class="w3-bar-item w3-button" onclick="openMenu('Desserts')">Desserts</button>
   <button class="w3-bar-item w3-button" onclick="openMenu('SetMenu')">Private Dining</button>
-  <button class="w3-bar-item w3-button" onclick="openMenu('Drinks')">Drink</button>
+  <button class="w3-bar-item w3-button" onclick="openMenu('Drinks')">Drinks</button>
 </div>
 
 
@@ -139,7 +139,7 @@
                     <h2 class="fh5co-drinks">Fish</h2>
                     <ul>
                        @foreach( $items as $item)
-                        @if($item->section_id === 3 )
+                        @if($item->section_id === 6 )
                             <li>
                                 <div class="fh5co-food-desc">
                                     <!--<figure>
@@ -160,7 +160,90 @@
                 </div>
             </div>
             </div>
+
+            <div style="display:none" id="Desserts" class="Menu">
+            <div class="col-md-6">
+                <div class="fh5co-food-menu to-animate-2">
+                    <h2 class="fh5co-drinks">Desserts</h2>
+                    <ul>
+                    @foreach( $items as $item)
+                        @if($item->section_id === 4 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    &euro;{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+                    </ul>
+                </div>
+            </div>
         </div>
+        <div style="display:none" id="SetMenu" class="Menu">
+            <div class="col-md-6">
+                <div class="fh5co-food-menu to-animate-2">
+                    <h2 class="fh5co-drinks">Private Dining</h2>
+                    <ul>
+                    @foreach( $items as $item)
+                        @if($item->section_id === 7 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    &euro;{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="display:none" id="Drinks" class="Menu">
+            <div class="col-md-6">
+                <div class="fh5co-food-menu to-animate-2">
+                    <h2 class="fh5co-drinks">Drinks</h2>
+                    <ul>
+                    @foreach( $items as $item)
+                        @if($item->section_id === 7 )
+                            <li>
+                                <div class="fh5co-food-desc">
+                                    <!--<figure>
+                                        <img src="images/res_img_3.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
+                                    </figure>-->
+                                    <div>
+                                        <h3>{{ $item->name}}</h3>
+                                        <p>{{ $item->description }}</p>
+                                    </div>
+                                </div>
+                                <div class="fh5co-food-pricing">
+                                    &euro;{{ $item->price}}                               
+                                </div>
+                            </li>
+                        @endif
+                    @endforeach
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        
         <div class="row">
             <div class="col-md-4 col-md-offset-4 text-center to-animate-2">
                 <p><a href="#" class="btn btn-primary btn-outline">More Food Menu</a></p>

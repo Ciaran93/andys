@@ -34,3 +34,7 @@ Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update')
 // Items
 Route::post('/admin/items', 'ItemController@addItem')->name('items.add');
 Route::post('/admin/', 'ItemController@update')->name('items.update');
+
+//Upload
+Route::post('/upload', 'UploadController@upload')->name('upload');
+Route::get('/admin/media', 'MediaController@index');

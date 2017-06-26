@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/', 'HomeController@willBeindex');
 Route::get('/about', 'HomeController@about');
 Route::get('/history', 'HomeController@history');
+Route::get('/blog/{id}', 'BlogController@getBlogPost');
 
 //Admin
 Route::get('/admin', 'AdminController@index');
@@ -26,7 +27,6 @@ Route::get('/admin/foods', 'AdminController@foods');
 Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
 Route::get('/admin/editItem/{id}','AdminController@editItem');
 
-// POSTS
 
 // About
 Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update');
@@ -36,5 +36,12 @@ Route::post('/admin/items', 'ItemController@addItem')->name('items.add');
 Route::post('/admin/', 'ItemController@update')->name('items.update');
 
 //Upload
-Route::post('/upload', 'UploadController@upload')->name('upload');
+Route::post('/admin/media', 'UploadController@upload')->name('upload');
 Route::get('/admin/media', 'MediaController@index');
+
+//Blog
+Route::get('/admin/blog/{id}','BlogController@edit');
+Route::get('/admin/blog','BlogController@index');
+Route::post('/admin/blog','BlogController@add')->name('blog.update');
+
+//Social

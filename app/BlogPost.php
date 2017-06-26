@@ -5,9 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Item extends Model
+class BlogPost extends Model
 {
-    
-    protected $table = 'menu_item';
-
+    protected $table = 'posts';
 }

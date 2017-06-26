@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="col-md-8 col-md-offset-2">
     {{ Form::open(array('route' => 'items.update', 'class' => 'form')) }}
     <div class="form-group">
         {{Form::label('name', 'Name:') }}
@@ -37,5 +39,5 @@
     
     
     {{ Form::close() }}
-
+</div>
 @endsection

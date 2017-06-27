@@ -24,9 +24,8 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/admin/items', 'AdminController@items');
 Route::get('/admin/about', 'AdminController@about');
 Route::get('/admin/foods', 'AdminController@foods');
-Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
 Route::get('/admin/editItem/{id}','AdminController@editItem');
-
+Route::get('/admin/media', 'AdminController@media');
 
 // About
 Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update');
@@ -34,10 +33,10 @@ Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update')
 // Items
 Route::post('/admin/items', 'ItemController@addItem')->name('items.add');
 Route::post('/admin/', 'ItemController@update')->name('items.update');
+Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
 
-//Upload
-Route::post('/admin/media', 'UploadController@upload')->name('upload');
-Route::get('/admin/media', 'MediaController@index');
+//Media
+Route::post('/admin/media', 'MediaController@upload')->name('upload');
 
 //Blog
 Route::get('/admin/blog/{id}','BlogController@edit');
@@ -45,3 +44,6 @@ Route::get('/admin/blog','BlogController@index');
 Route::post('/admin/blog','BlogController@add')->name('blog.update');
 
 //Social
+
+//Bookings
+Route::get('/bookings','BookingsController@reply');

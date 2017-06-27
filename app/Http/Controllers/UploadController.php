@@ -3,13 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Input;
+use Illuminate\Support\Facades\Storage;
+
 class UploadController extends Controller
 {
 
-    public function upload(){
 
-        request()->file('imageurl')->store('app');
-
-    }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-12">
+<div class="col-md-8 col-md-offset-2">
 <h1>Update Foods Information</h1>
 
     <h2>Current About</h2>

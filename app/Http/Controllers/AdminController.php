@@ -13,7 +13,6 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
         return view('admin.home');
@@ -31,12 +30,16 @@ class AdminController extends Controller
 
     public function foods(){
         $foodsInfo = new FoodsInfoController();
-        // echo 'here'; exit;
         return $foodsInfo->index();
     }
 
     public function editItem($id){
         $itemController = new ItemController();
         return $itemController->editItem($id);
+    }
+
+    public function media(){
+        $mediaController = new MediaController();
+        return $mediaController->index();
     }
 }

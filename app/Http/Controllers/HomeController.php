@@ -18,7 +18,10 @@ class HomeController extends Controller
         $aboutController = new AboutController();
         $about = $aboutController->getLastRow();
 
-        return view('home',compact('items','about', 'itemsFeatured'));
+        $blogController = new BlogController();
+        $blogPosts = $blogController->getAllBlogPosts();
+
+        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts'));
     }
     public function index(){
         return view('comingsoon');

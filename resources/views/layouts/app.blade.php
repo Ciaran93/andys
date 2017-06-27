@@ -50,6 +50,8 @@
                         
                         <li><a href="/admin/items">Menu</a></li>
                         <li><a href="/admin/about">About</a></li>
+                        <li><a href="/admin/media">Media</a></li>
+                        <li><a href="/admin/blog">Blog</a></li>
                         <li><a href="/admin/foods">Food Info</a></li>
 
 

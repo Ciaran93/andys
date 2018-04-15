@@ -9,8 +9,16 @@ class About extends Model
 {
         protected $table = 'about';
 
+        public function About(){
+
+
+        }
+
         public static function getLastRow(){
-                return DB::table('about')->orderBy('id', 'desc')->first();
+
+                $about = DB::table('about')->orderBy('id', 'desc')->first();
+                
+                return !empty($about) ? $about : new Self();
         }
 
 }

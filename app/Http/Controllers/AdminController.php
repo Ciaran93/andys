@@ -18,9 +18,14 @@ class AdminController extends Controller
         return view('admin.home');
     }
 
-    public function items(){
+    public function menuItems(){
         $itemController = new ItemController();
         return $itemController->index();
+    }
+
+    public function menuSections(){
+        $menuSectionController = new MenuSectionController();
+        return $menuSectionController->index();
     }
 
     public function about(){
@@ -36,6 +41,13 @@ class AdminController extends Controller
     public function editItem($id){
         $itemController = new ItemController();
         return $itemController->editItem($id);
+    }
+
+    public function editSection($id){
+        
+        $menuSectionController = new MenuSectionController();
+        return $menuSectionController->editSection($id);
+        
     }
 
     public function media(){

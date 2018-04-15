@@ -18,15 +18,24 @@ class ItemController extends Controller
     public function getAllItems(){
         return Item::all();
     }
+    
     public function getNonCeasedItems(){
         return Item::where('ceased', 0)->get();
     }
+
     public function getAllSections(){
-        return DB::table('menu_section')->get();
+
+        $sectionController = new MenuSectionController();
+        $sections = $sectionController->getAllSections();
+
+        return $sections;
+
     }
 
     public function getFeaturedDishes(){
-        return Item::where('featured', 1)->get();
+        $featured = Item::where('featured', 1)->get();
+
+        return (!$featured->isEmpty()) ? $featured : null;
     }
 
     public function addItem(Request $request){
@@ -48,8 +57,6 @@ class ItemController extends Controller
 
         $item = Item::findOrFail($id);
         $sections = $this->getAllSections();
-        // echo '<pre>';
-        // print_r($item); exit;
         return view('admin.menu.editItem',compact('item','sections'));
     }
 
@@ -67,6 +74,8 @@ class ItemController extends Controller
         $item->save();
         return $this->index();
     }    
+
+
     public function delete(Request $request){
 
         $item = Item::findOrFail($request->id);

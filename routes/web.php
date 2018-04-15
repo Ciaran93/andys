@@ -21,11 +21,19 @@ Route::get('/blog/{id}', 'BlogController@getBlogPost');
 
 //Admin
 Route::get('/admin', 'AdminController@index');
-Route::get('/admin/items', 'AdminController@items');
+
+// Admin - Menu
+Route::get('/admin/menu/items', 'AdminController@menuItems');
+Route::get('/admin/menu/sections', 'AdminController@menuSections');
+
+
 Route::get('/admin/about', 'AdminController@about');
 Route::get('/admin/foods', 'AdminController@foods');
 Route::get('/admin/editItem/{id}','AdminController@editItem');
 Route::get('/admin/media', 'AdminController@media');
+
+Route::get('/admin/menu/section/edit/{id}','AdminController@editSection');
+
 
 // About
 Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update');
@@ -34,6 +42,14 @@ Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update')
 Route::post('/admin/items', 'ItemController@addItem')->name('items.add');
 Route::post('/admin/', 'ItemController@update')->name('items.update');
 Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
+
+//Sections
+Route::post('/admin/menu/sections', 'MenuSectionController@create')->name('sections.add');
+Route::get('/admin/menu/section/delete/{id}', 'MenuSectionController@delete')->name('section.delete');
+Route::post('/admin/menu/section/', 'MenuSectionController@update')->name('section.update');
+
+
+
 
 //Media
 Route::post('/admin/media', 'MediaController@upload')->name('upload');

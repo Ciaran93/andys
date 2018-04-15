@@ -7,11 +7,12 @@
             <h1>Menu</h1>
             <h3>Edit and add menu items here.</h3>
 
-            <h4>Add new Menu Item</h4>
+            <button type="button" class="btn btn-primary" onClick="$('#add_menu_item').toggle();">Add Section</button>
 
+    {{ Form::open(array('route' => 'items.add', 'class' => 'form', 'id' => 'add_menu_item', 'style' => 'display:none')) }}
     
+    <h4>Add new Menu Item</h4>
     
-    {{ Form::open(array('route' => 'items.add', 'class' => 'form')) }}
     <div class="form-group">
         {{Form::label('name', 'Name:') }}
         {{Form::text('name',null, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
@@ -29,18 +30,25 @@
 
         <select class="form-control m-bot15" name="section_id" id="section_id">
             <option value="0">Select Section</option>    
-
-                @foreach($sections as $section)
-                    <option value="{{ $section->id }}">{{ $section->name }}</option>    
-                @endforeach
-
+                @if($sections != null)
+                    @foreach($sections as $section)
+                        <option value="{{ $section->id }}">{{ $section->name }}</option>    
+                    @endforeach
+                @endif
         </select>
+        
+        <div class="checkbox">
+            <label><input type="checkbox" name="featured" value="featured">Featured Item</label>
+        </div>
 
-        <input type="checkbox" name="featured" value="featured">Featured Item</input>
-        <input type="checkbox" name="gf" value="gf">GF</input>
-        <input type="checkbox" name="veg" value="veg">Veg</input>
+        <div class="checkbox">
+            <label><input type="checkbox" name="veg" value="veg">Veg</label>
+        </div>
 
-        <br>
+        <div class="checkbox">
+            <label><input type="checkbox" name="gf" value="gf">Gluten Free</label>
+        </div>
+
         
         {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg'))}}
     
@@ -49,6 +57,8 @@
 
 
             <h4>Current Menu</h4>
+            @isset($sections)
+            
                 @foreach ($sections as $section)
 
                 <h2>{{ $section->name }}</h2>
@@ -68,6 +78,7 @@
                 </thead>
 
                 <tbody>
+                @isset($items)
                     @foreach ($items as $item)
                         @if($item->section_id === $section->id)
                             <tr>
@@ -83,11 +94,12 @@
                             </tr>
                         @endif
                     @endforeach
-                    <!--<button type="button" ><a href="/admin/editItem/{{$item->id}}">Edit</a></button>-->
+            @endisset
                 </tbody>
                 </table>
 
                 @endforeach
+        @endisset
 
                 <script>
                 public function comfirmDelete(){

@@ -5,27 +5,22 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Menu Sections</h2>
+            <h2>Menu Sections Types</h2>
             <h3>Edit and add menu sections.</h3>
 
-            <button type="button" class="btn btn-primary" onClick="$('#add_menu_section').toggle();">Add Section</button>
+            <button type="button" class="btn btn-primary" onClick="$('#add_menu_section_type').toggle();">Add Section</button>
 
     
-            {{ Form::open(array('route' => 'section.add', 'class' => 'form', 'id' => 'add_menu_section', 'style'=>'display:none')) }}
+            {{ Form::open(array('route' => 'sectionType.add', 'class' => 'form', 'id' => 'add_menu_section_type', 'style'=>'display:none')) }}
             
-            <h4>Add new Menu Section</h4>
+            <h4>Add new Menu Section Type</h4>
             
             <div class="form-group">
                 {{Form::label('name', 'Name:') }}
                 {{Form::text('name',null, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
             </div>
-            <div class="form-group">
-            
-                {{Form::label('description', 'Description:') }}
-                {{Form::text('description', null, array('class' => 'form-control'))}}
-            </div>
                 
-                {{ Form::submit('Add Section', array('onClick' => 'return validate();', 'class' => 'btn btn-success btn-lg'))}}
+                {{ Form::submit('Add Section Type', array('onClick' => 'return validate();', 'class' => 'btn btn-success btn-lg'))}}
 
     {{ Form::close() }}
 
@@ -38,7 +33,6 @@
     <thead>
         <tr>
             <th>Name</th>
-            <th>Description</th>
             <th>EDIT</th>
             <th>Delete</th>
         </tr>
@@ -49,9 +43,8 @@
             @foreach ($sections as $section)
                 <tr>
                     <td>{{ $section->name }} </td>
-                    <td>{{ $section->description }}</td>
-                    <td><a href="/admin/menu/section/edit/{{$section->id}}" class="button">Edit</a></td>
-                    <td><a href="/admin/menu/section/delete/{{$section->id}}" class="button" onclick="return confirmDelete();">DELETE</a></td>
+                    <td><a href="/admin/menu/sectionsTypes/update/{{$section->id}}" class="button">Edit</a></td>
+                    <td><a href="/admin/menu/sectionsTypes/delete/{{$section->id}}" class="button" onclick="return confirmDelete();">DELETE</a></td>
                 </tr>
             @endforeach
         @endisset

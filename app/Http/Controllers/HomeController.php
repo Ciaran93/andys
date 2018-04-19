@@ -23,11 +23,56 @@ class HomeController extends Controller
         $menuSectionController = new MenuSectionController();
         $sections = $menuSectionController->getAllSections();
 
+        $typeController = new MenuSectionTypeController();
+        $sectionTypes = $typeController->getMenuSectionTypes();
+// echo '<pre>'; print_r($sectionTypes); exit;
+
         $blogController = new BlogController();
         $blogPosts = $blogController->getAllBlogPosts();
 
-        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections'));
+        $menu_arr = $this->formatSections($items,$sections, $sectionTypes);
+
+        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'sectionTypes', 'menu_arr'));
     }
+
+
+    private function formatSections($items, $sections, $sectionTypes){
+
+        $menu_arr = array();
+        
+        // foreach($sections as $section){
+
+        //     foreach($sectionTypes as $type){
+
+        //         if($type->menu_section_id == $section->id){
+
+        //             $section->types[] = $type;
+
+        //         }
+        //     }
+
+        // }
+
+        // foreach($sections as $section){
+
+        //     foreach($items as $item){
+
+        //         if($item->section_id == $section->id){
+
+        //             $section['items'] = $item;
+        //         }
+        //     }
+
+
+        // }
+        
+
+        // echo '<pre>'; print_r($sections); exit;
+        
+        
+        return $menu_arr;
+    }
+
     public function index(){
         return view('comingsoon');
         

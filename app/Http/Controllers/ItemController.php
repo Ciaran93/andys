@@ -40,6 +40,7 @@ class ItemController extends Controller
 
     public function addItem(Request $request){
 
+
         $item = new Item();
         $item->name = $request->name;
         $item->description = $request->description;
@@ -48,6 +49,7 @@ class ItemController extends Controller
         $item->featured = ($request->featured == null ? false : true);
         $item->gf = ($request->gf == null ? false : true);
         $item->veg = ($request->veg == null ? false : true);
+        $item->menu_section_type_id = $request->menu_section_type_select;
         
         $item->save();
         return $this->index();

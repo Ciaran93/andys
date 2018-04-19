@@ -3,7 +3,6 @@
 				<div class="row text-center fh5co-heading row-padded">
 					<div class="col-md-8 col-md-offset-2">
 						<h2 class="heading to-animate">Reserve a Table</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -29,14 +28,9 @@
 							<label for="email" class="sr-only">Email</label>
 							<input id="email" class="form-control" placeholder="Email" type="email">
 						</div>
-						<div class="form-group">
-							<label for="occation" class="sr-only">Occation</label>
-							<select class="form-control" id="occation">
-								<option>Select an Occation</option>
-							  <option>Wedding Ceremony</option>
-							  <option>Birthday</option>
-							  <option>Others</option>
-							</select>
+						<div class="form-group ">
+							<label for="name" class="sr-only">People</label>
+							<input id="name" class="form-control" placeholder="People" type="text">
 						</div>
 						<div class="form-group ">
 							<label for="date" class="sr-only">Date</label>

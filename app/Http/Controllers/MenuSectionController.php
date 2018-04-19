@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MenuSection;
+use App\MenuSectionType;
 
 class MenuSectionController extends Controller
 {
@@ -80,6 +81,31 @@ class MenuSectionController extends Controller
         $section->description = $request->description;
         
         $section->save();
+
+
+        // remove all menu section types from the menu id
+        $sectionTypes = MenuSectionType::where('menu_section_id', $request->id)->get();
+        foreach($sectionTypes as $type){
+            $type->menu_section_id = null;
+            $type->save();
+        }
+        
+        // set the selected ones
+        if($request->menu_section_types_arr != null){
+
+            $section_types_id_arr = json_decode($request->menu_section_types_arr);
+            
+            foreach($section_types_id_arr as $type_id){
+                if($type_id > 0){
+                    $sectionType = MenuSectionType::findOrFail($type_id);
+                    $sectionType->menu_section_id = $request->id;
+                    $sectionType->save();
+                }
+                
+            }
+
+        } 
+        
         return $this->index();
     }  
 
@@ -111,8 +137,19 @@ class MenuSectionController extends Controller
 
     public function editSection($id){
 
+        $sectionTypeController = new MenuSectionTypeController();
+        $sectionTypes = $sectionTypeController->getMenuSectionTypes();
+
         $section = MenuSection::findOrFail($id);
 
-        return view('admin.menu.editMenuSection',compact('section'));
+        $sectionTypesSelected = MenuSectionType::where('menu_section_id', $id)->get();
+
+        $selectedIds = array();
+
+        foreach($sectionTypesSelected as $selected){
+            $selectedIds[] = $selected->id;
+        }
+
+        return view('admin.menu.editMenuSection',compact('section', 'sectionTypes', 'sectionTypesSelected', 'selectedIds'));
     }
 }

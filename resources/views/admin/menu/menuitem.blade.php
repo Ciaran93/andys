@@ -28,6 +28,7 @@
         {{Form::text('price', null, array('class' => 'form-control'))}}
     </div>
 
+    <div class="form-group">
         <select class="form-control m-bot15" name="section_id" id="section_id">
             <option value="0">Select Section</option>    
                 @if($sections != null)
@@ -36,18 +37,25 @@
                     @endforeach
                 @endif
         </select>
-        
-        <div class="checkbox">
-            <label><input type="checkbox" name="featured" value="featured">Featured Item</label>
-        </div>
+    </div>
 
-        <div class="checkbox">
-            <label><input type="checkbox" name="veg" value="veg">Veg</label>
-        </div>
+    <div class="form-group">
+        <select class="form-control m-bot15" name="menu_section_type_select" id="menu_section_type_select" style="display:none">
+            <option value="0">Select Section Type</option>    
+        </select>
+    </div>
 
-        <div class="checkbox">
-            <label><input type="checkbox" name="gf" value="gf">Gluten Free</label>
-        </div>
+    <div class="checkbox">
+        <label><input type="checkbox" name="featured" value="featured">Featured Item</label>
+    </div>
+
+    <div class="checkbox">
+        <label><input type="checkbox" name="veg" value="veg">Veg</label>
+    </div>
+
+    <div class="checkbox">
+        <label><input type="checkbox" name="gf" value="gf">Gluten Free</label>
+    </div>
 
         
         {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg'))}}
@@ -101,20 +109,14 @@
                 @endforeach
         @endisset
 
-                <script>
-                public function comfirmDelete(){
-                    if (confirm("Click OK to continue?")){
-                        $('form#delete').submit();
-                    }
-                }
-
-                });
-                </script>
-
 
 
             </div>
         </div>
     </div>
 </div>
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.min.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/menu-item.js') }}"></script>
+
+
 @endsection

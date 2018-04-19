@@ -54,8 +54,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="/admin/menu/sections">Menu Sections</a></li>
                                     <li><a href="/admin/menu/items">Menu Items</a></li>
+                                    <li><a href="/admin/menu/sections">Menu Sections</a></li>
+                                    <li><a href="/admin/menu/sectionsTypes">Menu Section Types</a></li>
                                 </ul>
                             </li>
                         <li><a href="/admin/about">About</a></li>

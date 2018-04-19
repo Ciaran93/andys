@@ -34,4 +34,16 @@ function confirmDelete(){
     
 }
 
+function setMenuSectionTypesSelected(id){
+
+    var section_type_id = $('#section_types').val();
+
+    if(section_type_id != ''){
+        $('#menu_section_types_arr').val(JSON.stringify(section_type_id));
+    }
+
+    
+
+}
+
 

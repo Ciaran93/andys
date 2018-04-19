@@ -44,10 +44,17 @@ Route::post('/admin/', 'ItemController@update')->name('items.update');
 Route::get('/admin/delete/{id}', 'ItemController@delete')->name('items.delete');
 
 //Sections
-Route::post('/admin/menu/sections', 'MenuSectionController@create')->name('sections.add');
+Route::post('/admin/menu/sections', 'MenuSectionController@create')->name('section.add');
 Route::get('/admin/menu/section/delete/{id}', 'MenuSectionController@delete')->name('section.delete');
 Route::post('/admin/menu/section/', 'MenuSectionController@update')->name('section.update');
 
+// Section Types
+Route::get('/admin/menu/sectionsTypes', 'MenuSectionTypeController@index');
+Route::post('/admin/menu/sectionsTypes/create', 'MenuSectionTypeController@create')->name('sectionType.add');
+Route::get('/admin/menu/sectionsTypes/delete/{id}', 'MenuSectionTypeController@delete')->name('sectionType.delete');
+Route::post('/admin/menu/sectionsTypes/update', 'MenuSectionTypeController@update')->name('sectionType.update');
+
+Route::get('/admin/ajax/menu-section-types/getAll', 'MenuSectionTypeController@getMenuSectionTypesAjax');
 
 
 

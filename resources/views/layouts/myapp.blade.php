@@ -57,6 +57,7 @@
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.waypoints.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.stellar.min.js') }}"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.flexslider-min.js') }}"></script>
+	<script type="text/javascript" src="{{ URL::asset('js/menu-item.js') }}"></script>
 	
 
 	<script>

@@ -67,6 +67,8 @@ Route::post('/admin/blog','BlogController@add')->name('blog.update');
 //Bookings
 Route::get('/bookings','BookingsController@reply');
 
+// Reservation
+Route::post('/ajax/email','ReservationController@email')->name('reservation.email');
 
 
 // AJAX

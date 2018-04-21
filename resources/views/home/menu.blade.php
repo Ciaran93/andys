@@ -11,7 +11,7 @@
 
 <div class="w3-bar w3-black">
     @foreach( $sections as $section)
-        <button class="w3-bar-item w3-button" onclick="openMenu('{{ $section->name }}')">{{ $section->name }}</button>
+        <button class="btn btn-dark" type="button" onclick="openMenu('{{ $section->name }}')">{{ $section->name }}</button>
     @endforeach
 </div>
 

@@ -17,20 +17,6 @@
                             <p class="quote-author">&mdash; Tripadvisor</p>
                         </blockquote>
                     </li>
-                    <!--<li>-->
-                        <!--<blockquote>
-                            <p>&ldquo;Find something you’re passionate about and keep tremendously interested in it.&rdquo;</p>
-                            <p class="quote-author">&mdash; Julia Child</p>
-                        </blockquote>
-                    </li>
-                    <li>
-                        <blockquote>
-                            <p>&ldquo;Never work before breakfast; if you have to work before breakfast, eat your breakfast first.&rdquo;</p>
-                            <p class="quote-author">&mdash; Josh Billings</p>
-                        </blockquote>
-                    </li>-->
-                    
-                    
                 </ul>
             </div>
 

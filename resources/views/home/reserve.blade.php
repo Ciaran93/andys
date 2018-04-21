@@ -3,7 +3,7 @@
 				<div class="row text-center fh5co-heading row-padded">
 					<div class="col-md-8 col-md-offset-2">
 						<h2 class="heading to-animate">Reserve a Table</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p class="sub-heading to-animate">Want to reserve a table, send us a message below and we will get back to you.</p>
 					</div>
 				</div>
 				<div class="row">
@@ -19,37 +19,53 @@
 							<!--<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>-->
 						</ul>
 					</div>
-					<div class="col-md-6 to-animate-2">
+					<div class="col-md-6 to-animate-2" id="reservation_form">
 						<h3>Reservation Form</h3>
-						<div class="form-group ">
-							<label for="name" class="sr-only">Name</label>
-							<input id="name" class="form-control" placeholder="Name" type="text">
-						</div>
-						<div class="form-group ">
-							<label for="email" class="sr-only">Email</label>
-							<input id="email" class="form-control" placeholder="Email" type="email">
-						</div>
 						
-						<div class="form-group ">
-							<label for="date" class="sr-only">Date</label>
-							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
-						</div>
+							{{ Form::open(array('route' => 'reservation.email', 'class' => 'form')) }}
+								<div class="form-group">
+									{{Form::text('name',null, array( 'class' => 'form-control', 'placeholder' => 'Name'))}}
+								</div>
 
+								<div class="form-group">
+									{{Form::text('email',null, array( 'class' => 'form-control', 'placeholder' => 'Email'))}}
+								</div>
 
-							
-						<div class="form-group ">
-							<label for="message" class="sr-only">Message</label>
-							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+								<div class="form-group">
+									{{Form::date('date',null, array( 'class' => 'form-control', 'placeholder' => 'Date'))}}
+								</div>
+
+								<div class="form-group">
+									{{Form::time('time',null, array( 'class' => 'form-control', 'placeholder' => 'time'))}}
+								</div>
+
+								<div class="form-group">
+									{{Form::text('message',null, array( 'class' => 'form-control', 'placeholder' => 'Message'))}}
+								</div>
+								
+								<br>
+									{{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg'))}}
+									
+								<div class="form-group ">
+									<input class="btn btn-primary" value="Reservation" onClick="emailReservation();" >
+								</div>
+							{{ Form::close() }}
+		
+						
 						</div>
-						<div class="form-group ">
-							<input class="btn btn-primary" value="Send Message" type="submit">
-						</div>
+				</div>
+
+				<div class="col-md-6 to-animate-2" id="email_success" style="display:none;">
+						<h3>Thank You</h3>
+
+							<p>Thank you for your reservation request, we will email you back to confirm your booking.</p>
 						</div>
 				</div>
 			</div>
 		</div>
 
-		
 	</div>
 
+
+	<script type="text/javascript" src="{{ URL::asset('js/home.js') }}"></script>
 

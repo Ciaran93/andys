@@ -34,7 +34,6 @@ Route::get('/admin/media', 'AdminController@media');
 
 Route::get('/admin/menu/section/edit/{id}','AdminController@editSection');
 
-
 // About
 Route::post('/admin/about', 'AboutController@updateAbout')->name('about.update');
 
@@ -49,8 +48,12 @@ Route::get('/admin/menu/section/delete/{id}', 'MenuSectionController@delete')->n
 Route::post('/admin/menu/section/', 'MenuSectionController@update')->name('section.update');
 
 
-
-
+//Categories
+Route::get('/admin/menu/sections/categories/{menu_section_id}', 'MenuCategoryController@index');
+Route::post('/admin/menu/sections/categories/add', 'MenuCategoryController@addCategory')->name('category.add');
+Route::get('/admin/menu/section/{menu_section_id}/categories/delete/{id}', 'MenuCategoryController@delete');
+Route::post('/admin/menu/section/', 'MenuSectionController@update')->name('section.update');
+// /admin/menu/section/{{$section->id}}/categories/delete/{{$category->id}}
 //Media
 Route::post('/admin/media', 'MediaController@upload')->name('upload');
 
@@ -63,3 +66,9 @@ Route::post('/admin/blog','BlogController@add')->name('blog.update');
 
 //Bookings
 Route::get('/bookings','BookingsController@reply');
+
+
+
+// AJAX
+Route::get('/admin/ajax/getMenuCategories/{id}','MenuCategoryController@getMenuCategoriesAjax');
+

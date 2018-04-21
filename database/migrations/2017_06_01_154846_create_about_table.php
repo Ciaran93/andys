@@ -16,10 +16,12 @@ class CreateAboutTable extends Migration
         Schema::create('about', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->string('content');
-            $table->integer('image_id')->unsigned();
-            $table->foreign('image_id')->references('id')->on('images');
+            $table->text('content');
+            $table->integer('image_id')->nullable();
             $table->timestamps();
+
+            //ALTER TABLE about MODIFY content text;
+
         });
     }
 
@@ -33,3 +35,5 @@ class CreateAboutTable extends Migration
         //
     }
 }
+
+

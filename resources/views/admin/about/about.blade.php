@@ -15,7 +15,7 @@
         {{Form::label('content', 'Content:') }}
         {{Form::textarea('content',$about->content, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
     </div>
-    <div class="form-group">
+    <div class="form-group" style="display:none;">
         {{Form::label('image', 'Image link:') }}
         {{Form::text('imageurl',null, array('class' => 'form-control'))}}
     </div>

@@ -29,15 +29,7 @@
 							<label for="email" class="sr-only">Email</label>
 							<input id="email" class="form-control" placeholder="Email" type="email">
 						</div>
-						<div class="form-group">
-							<label for="occation" class="sr-only">Occation</label>
-							<select class="form-control" id="occation">
-								<option>Select an Occation</option>
-							  <option>Wedding Ceremony</option>
-							  <option>Birthday</option>
-							  <option>Others</option>
-							</select>
-						</div>
+						
 						<div class="form-group ">
 							<label for="date" class="sr-only">Date</label>
 							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">

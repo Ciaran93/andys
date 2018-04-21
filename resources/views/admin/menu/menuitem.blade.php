@@ -7,11 +7,12 @@
             <h1>Menu</h1>
             <h3>Edit and add menu items here.</h3>
 
-            <h4>Add new Menu Item</h4>
+            <button type="button" class="btn btn-primary" onClick="$('#add_menu_item').toggle();">Add Item</button>
 
+    {{ Form::open(array('route' => 'items.add', 'class' => 'form', 'id' => 'add_menu_item', 'style' => 'display:none')) }}
     
+    <h4>Add new Menu Item</h4>
     
-    {{ Form::open(array('route' => 'items.add', 'class' => 'form')) }}
     <div class="form-group">
         {{Form::label('name', 'Name:') }}
         {{Form::text('name',null, array('autofocus'=>'autofocus', 'class' => 'form-control'))}}
@@ -26,29 +27,46 @@
         {{Form::label('price', 'Price:') }}
         {{Form::text('price', null, array('class' => 'form-control'))}}
     </div>
+    <div class="form-group">        
 
-        <select class="form-control m-bot15" name="section_id" id="section_id">
+        <select class="form-control m-bot15" name="section_id" id="section_id" onChange="getMenuCategories(this.value);">
             <option value="0">Select Section</option>    
-
-                @foreach($sections as $section)
-                    <option value="{{ $section->id }}">{{ $section->name }}</option>    
-                @endforeach
-
+                @if($sections != null)
+                    @foreach($sections as $section)
+                        <option value="{{ $section->id }}">{{ $section->name }}</option>    
+                    @endforeach
+                @endif
         </select>
+    </div>
 
-        <input type="checkbox" name="featured" value="featured">Featured Item</input>
-        <input type="checkbox" name="gf" value="gf">GF</input>
-        <input type="checkbox" name="veg" value="veg">Veg</input>
-
-        <br>
+    <div class="form-group">        
+        <select class="form-control m-bot15" name="category_id" id="category_id" style="display:none">
+            <option value="0">Select Category</option>    
+        </select>
+    </div>
         
-        {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg'))}}
+        <div class="checkbox">
+            <label><input type="checkbox" name="featured" value="featured">Featured Item</label>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="veg" value="veg">Veg</label>
+        </div>
+
+        <div class="checkbox">
+            <label><input type="checkbox" name="gf" value="gf">Gluten Free</label>
+        </div>
+
+        
+        {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg', 'onClick' => 'return validate();'))}}
     
     
     {{ Form::close() }}
 
 
             <h4>Current Menu</h4>
+            @isset($sections)
+            
                 @foreach ($sections as $section)
 
                 <h2>{{ $section->name }}</h2>
@@ -59,6 +77,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Section</th>
                         <th>Featured</th>
                         <th>GF</th>
                         <th>VEG</th>
@@ -68,6 +87,7 @@
                 </thead>
 
                 <tbody>
+                @isset($items)
                     @foreach ($items as $item)
                         @if($item->section_id === $section->id)
                             <tr>
@@ -75,6 +95,13 @@
                                 <td>{{ $item->name }} </td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item->price }}</td>
+                                <td>
+                                    @foreach($categories as $category)
+                                        @if($category->id == $item->menu_category_id)
+                                            {{ $category->name }}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>{{ $item->featured }}</td>
                                 <td>{{ $item->gf }}</td>
                                 <td>{{ $item->veg }}</td>
@@ -83,22 +110,15 @@
                             </tr>
                         @endif
                     @endforeach
-                    <!--<button type="button" ><a href="/admin/editItem/{{$item->id}}">Edit</a></button>-->
+            @endisset
                 </tbody>
                 </table>
 
                 @endforeach
+        @endisset
 
-                <script>
-                public function comfirmDelete(){
-                    if (confirm("Click OK to continue?")){
-                        $('form#delete').submit();
-                    }
-                }
 
-                });
-                </script>
-
+            <script type="text/javascript" src="{{ URL::asset('js/menu-item.js') }}"></script>
 
 
             </div>

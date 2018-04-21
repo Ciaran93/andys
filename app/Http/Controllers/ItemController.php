@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\MenuCategory;
 use DB;
 class ItemController extends Controller
 {
@@ -11,22 +12,38 @@ class ItemController extends Controller
     public function index(){
         $items = $this->getNonCeasedItems();
         $sections = $this->getAllSections();
+        $categories = $this->getAllCategories();
 
-        return view('admin.menu.menuitem', compact('items', 'sections'));
+        return view('admin.menu.menuitem', compact('items', 'sections', 'categories'));
     }
 
     public function getAllItems(){
         return Item::all();
     }
+    
     public function getNonCeasedItems(){
         return Item::where('ceased', 0)->get();
     }
+
     public function getAllSections(){
-        return DB::table('menu_section')->get();
+
+        $sectionController = new MenuSectionController();
+        $sections = $sectionController->getAllSections();
+
+        return $sections;
+
+    }
+
+    public function getAllCategories(){
+
+        return MenuCategory::all();
+
     }
 
     public function getFeaturedDishes(){
-        return Item::where('featured', 1)->get();
+        $featured = Item::where('featured', 1)->get();
+
+        return (!$featured->isEmpty()) ? $featured : null;
     }
 
     public function addItem(Request $request){
@@ -36,6 +53,7 @@ class ItemController extends Controller
         $item->description = $request->description;
         $item->price = $request->price;
         $item->section_id = $request->section_id;
+        $item->menu_category_id = $request->category_id;
         $item->featured = ($request->featured == null ? false : true);
         $item->gf = ($request->gf == null ? false : true);
         $item->veg = ($request->veg == null ? false : true);
@@ -48,8 +66,6 @@ class ItemController extends Controller
 
         $item = Item::findOrFail($id);
         $sections = $this->getAllSections();
-        // echo '<pre>';
-        // print_r($item); exit;
         return view('admin.menu.editItem',compact('item','sections'));
     }
 
@@ -67,6 +83,8 @@ class ItemController extends Controller
         $item->save();
         return $this->index();
     }    
+
+
     public function delete(Request $request){
 
         $item = Item::findOrFail($request->id);

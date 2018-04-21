@@ -18,8 +18,8 @@ class CreateItemTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->decimal('price', 5, 2);
-            $table->integer('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('menu_section');
+            $table->integer('section_id');
+            // $table->foreign('section_id')->references('id')->on('menu_sections');
             $table->timestamps();
         });
     }

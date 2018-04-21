@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MenuSection;
+use App\MenuCategory;
 
 class MenuSectionController extends Controller
 {
@@ -99,6 +100,12 @@ class MenuSectionController extends Controller
         
     }
 
+    public function getAllMenuCategories($id){
+        
+        return MenuCategory::all();
+
+    }
+
     public function delete(Request $request){
 
         $section = MenuSection::findOrFail($request->id);
@@ -113,6 +120,8 @@ class MenuSectionController extends Controller
 
         $section = MenuSection::findOrFail($id);
 
-        return view('admin.menu.editMenuSection',compact('section'));
+        $categories = $this->getAllMenuCategories($id);
+
+        return view('admin.menu.editMenuSection',compact('section', 'categories'));
     }
 }

@@ -7,7 +7,7 @@
             <h1>Menu</h1>
             <h3>Edit and add menu items here.</h3>
 
-            <button type="button" class="btn btn-primary" onClick="$('#add_menu_item').toggle();">Add Section</button>
+            <button type="button" class="btn btn-primary" onClick="$('#add_menu_item').toggle();">Add Item</button>
 
     {{ Form::open(array('route' => 'items.add', 'class' => 'form', 'id' => 'add_menu_item', 'style' => 'display:none')) }}
     
@@ -27,8 +27,9 @@
         {{Form::label('price', 'Price:') }}
         {{Form::text('price', null, array('class' => 'form-control'))}}
     </div>
+    <div class="form-group">        
 
-        <select class="form-control m-bot15" name="section_id" id="section_id">
+        <select class="form-control m-bot15" name="section_id" id="section_id" onChange="getMenuCategories(this.value);">
             <option value="0">Select Section</option>    
                 @if($sections != null)
                     @foreach($sections as $section)
@@ -36,6 +37,13 @@
                     @endforeach
                 @endif
         </select>
+    </div>
+
+    <div class="form-group">        
+        <select class="form-control m-bot15" name="category_id" id="category_id" style="display:none">
+            <option value="0">Select Category</option>    
+        </select>
+    </div>
         
         <div class="checkbox">
             <label><input type="checkbox" name="featured" value="featured">Featured Item</label>
@@ -50,7 +58,7 @@
         </div>
 
         
-        {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg'))}}
+        {{ Form::submit('Add Item', array('class' => 'btn btn-success btn-lg', 'onClick' => 'return validate();'))}}
     
     
     {{ Form::close() }}
@@ -69,6 +77,7 @@
                         <th>Name</th>
                         <th>Description</th>
                         <th>Price</th>
+                        <th>Section</th>
                         <th>Featured</th>
                         <th>GF</th>
                         <th>VEG</th>
@@ -86,6 +95,13 @@
                                 <td>{{ $item->name }} </td>
                                 <td>{{ $item->description }}</td>
                                 <td>{{ $item->price }}</td>
+                                <td>
+                                    @foreach($categories as $category)
+                                        @if($category->id == $item->menu_category_id)
+                                            {{ $category->name }}
+                                        @endif
+                                    @endforeach
+                                </td>
                                 <td>{{ $item->featured }}</td>
                                 <td>{{ $item->gf }}</td>
                                 <td>{{ $item->veg }}</td>
@@ -101,16 +117,8 @@
                 @endforeach
         @endisset
 
-                <script>
-                public function comfirmDelete(){
-                    if (confirm("Click OK to continue?")){
-                        $('form#delete').submit();
-                    }
-                }
 
-                });
-                </script>
-
+            <script type="text/javascript" src="{{ URL::asset('js/menu-item.js') }}"></script>
 
 
             </div>

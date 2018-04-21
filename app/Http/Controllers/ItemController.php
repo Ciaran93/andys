@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\MenuCategory;
 use DB;
 class ItemController extends Controller
 {
@@ -11,8 +12,9 @@ class ItemController extends Controller
     public function index(){
         $items = $this->getNonCeasedItems();
         $sections = $this->getAllSections();
+        $categories = $this->getAllCategories();
 
-        return view('admin.menu.menuitem', compact('items', 'sections'));
+        return view('admin.menu.menuitem', compact('items', 'sections', 'categories'));
     }
 
     public function getAllItems(){
@@ -32,6 +34,12 @@ class ItemController extends Controller
 
     }
 
+    public function getAllCategories(){
+
+        return MenuCategory::all();
+
+    }
+
     public function getFeaturedDishes(){
         $featured = Item::where('featured', 1)->get();
 
@@ -45,6 +53,7 @@ class ItemController extends Controller
         $item->description = $request->description;
         $item->price = $request->price;
         $item->section_id = $request->section_id;
+        $item->menu_category_id = $request->category_id;
         $item->featured = ($request->featured == null ? false : true);
         $item->gf = ($request->gf == null ? false : true);
         $item->veg = ($request->veg == null ? false : true);

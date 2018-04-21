@@ -23,10 +23,13 @@ class HomeController extends Controller
         $menuSectionController = new MenuSectionController();
         $sections = $menuSectionController->getAllSections();
 
+        $catController = new MenuCategoryController();
+        $categories = $catController->getAllMenuCategories();
+        
         $blogController = new BlogController();
         $blogPosts = $blogController->getAllBlogPosts();
 
-        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections'));
+        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'categories'));
     }
     public function index(){
         return view('comingsoon');

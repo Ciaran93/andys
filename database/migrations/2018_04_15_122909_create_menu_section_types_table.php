@@ -13,14 +13,14 @@ class CreateMenuSectionTypesTable extends Migration
      */
     public function up()
     {
-        // Schema::create('menu_section_types', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('name');
-        //     $table->integer('menu_section_id')->nullable();
-        //     // $table->foreign('menu_section_id')->references('id')->on('menu_sections');
-        //     $table->boolean('ceased')->default(false);
-        //     $table->timestamps();
-        // });
+        Schema::create('menu_section_types', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->jsonb('menu_section_id')->nullable();
+            // $table->foreign('menu_section_id')->references('id')->on('menu_sections');
+            $table->boolean('ceased')->default(false);
+            $table->timestamps();
+        });
     }
 
     /**

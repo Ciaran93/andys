@@ -16,36 +16,35 @@
 
 <div class="row row-padded">
 @foreach( $sections as $section )
-        <div style="display:none" id="{{ $section->name }}" class="Menu1">
+        <div style="display:none" id="{{ $section->name }}" class="Menu">
 
-        @isset($sectionTypes)
             @foreach($sectionTypes as $type)
-
-                <div class="col-md-6">
-                    <div class="fh5co-food-menu to-animate-2">
-                        <h2 class="">{{ $section->name }}</h2>
-                        <ul>
-                        @foreach( $items as $item)
-                            @if($item->section_id === $section->id && $item->menu_section_type_id == $type->id)
-                                <li>
-                                    <div class="fh5co-food-desc">
-                                        <div>
-                                            <h3>{{ $item->name}}</h3>
-                                            <p>{{ $item->description }}</p>
+                @if($type->menu_section_id == $section->id)
+                    <div class="col-md-6">
+                        <div class="fh5co-food-menu to-animate-2">
+                            <h2 class="">@if($type->name != 'No Section') {{ $type->name  }} @endif</h2>
+                            <ul>
+                            @foreach( $items as $item)
+                                @if($item->section_id === $section->id && $item->menu_section_type_id == $type->id)
+                                    <li>
+                                        <div class="fh5co-food-desc">
+                                            <div>
+                                                <h3>{{ $item->name}}</h3>
+                                                <p>{{ $item->description }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="fh5co-food-pricing">
-                                        &euro;{{ $item->price}}                               
-                                    </div>
-                                </li>
-                            @endif
-                        @endforeach
-                        </ul>
+                                        <div class="fh5co-food-pricing">
+                                            &euro;{{ $item->price}}                               
+                                        </div>
+                                    </li>
+                                @endif
+                            @endforeach
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
-        @endforeach
-    @endisset          
+                @endif
+            @endforeach
             
         </div>
     @endforeach

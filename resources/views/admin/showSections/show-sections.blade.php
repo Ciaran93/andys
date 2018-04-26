@@ -7,8 +7,23 @@
         <div class="col-md-8 col-md-offset-2">
 
             <div class="form-group">
+                <label for="show_menu">Show Menu </label>
+                <input type="checkbox" name="show_menu" @if($section->show_menu) checked @endif></input>
+            </div>
+
+            <div class="form-group">
+                <label for="show_menu">Show About </label>
+                <input type="checkbox" name="show_about" @if($section->show_about) checked @endif></input>
+            </div>
+
+            <div class="form-group">
                 <label for="show_menu">Show Featured </label>
                 <input type="checkbox" name="show_featured" @if($section->show_featured) checked @endif></input>
+            </div>
+
+            <div class="form-group">
+                <label for="show_menu">Show Tripadvisor </label>
+                <input type="checkbox" name="show_featured" @if($section->show_tripadvisor) checked @endif></input>
             </div>
             
             <div class="form-group">

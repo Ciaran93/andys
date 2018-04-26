@@ -3,13 +3,21 @@
 @section('content')
 
 	@include('home.nav')
-	@include('home.about')
-	@include('home.quote')
+	@if($showSection->show_about)
+		@include('home.about')
+	@endif
+
+	@if($showSection->show_tripadvisor)
+		@include('home.quote')
+	@endif
 
 	@if($showSection->show_featured)
 		@include('home.featured')
 	@endif
-	@include('home.menu')
+
+	@if($showSection->show_menu)
+		@include('home.menu')
+	@endif
 	<!-- @include('home.events') -->
 
 	@if($showSection->show_reservation)

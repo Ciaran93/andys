@@ -4,16 +4,35 @@
         <div class="container-fluid">
             <div class="fh5co-menu-1">
                 <a href="#" data-nav-section="home">Home</a>
-                <a href="#" data-nav-section="about">About</a>
-                <a href="#" data-nav-section="features">Features</a>
+
+                    @if($showSection->show_about)
+                        <a href="#" data-nav-section="about">About</a>
+                    @endif
+
+                    @if($showSection->show_featured)
+                        <a href="#" data-nav-section="features">Featured</a>
+                    @endif
+
             </div>
+
             <div class="fh5co-logo">
                 <a href="index.html">Andys</a>
             </div>
+
             <div class="fh5co-menu-2">
-                <a href="#" data-nav-section="menu">Menu</a>
-                <a href="#" data-toggle="modal" data-target="#myModal">Gifts</a>
-                <a href="#" data-nav-section="reservation">Reservation</a>
+
+                @if($showSection->show_menu)
+                    <a href="#" data-nav-section="menu">Menu</a>
+                @endif
+
+                @if($showSection->show_gifts)
+                    <a href="#" data-toggle="modal" data-target="#myModal">Gifts</a>
+                @endif
+
+                @if($showSection->show_reservation)
+                    <a href="#" data-nav-section="reservation">Reservation</a>
+                @endif
+
             </div>
         </div>
         

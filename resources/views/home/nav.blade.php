@@ -16,7 +16,8 @@
             </div>
 
             <div class="fh5co-logo">
-                <a href="index.html">Andys</a>
+                <!-- <a href="index.html">Andys</a> -->
+                <img src="images/andys_logo_400_x_300.png" style="padding-top: 10px;" width="35%">
             </div>
 
             <div class="fh5co-menu-2">

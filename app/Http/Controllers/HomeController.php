@@ -29,7 +29,10 @@ class HomeController extends Controller
         $blogController = new BlogController();
         $blogPosts = $blogController->getAllBlogPosts();
 
-        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'categories'));
+        $showSections = new ShowSectionsController();
+        $showSection = $showSections->getShowSection();
+
+        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'categories', 'showSection'));
     }
     public function index(){
         return view('comingsoon');

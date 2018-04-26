@@ -5,14 +5,21 @@
 	@include('home.nav')
 	@include('home.about')
 	@include('home.quote')
-	<!-- @include('home.featured') -->
+
+	@if($showSection->show_featured)
+		@include('home.featured')
+	@endif
 	@include('home.menu')
 	<!-- @include('home.events') -->
-	@include('home.reserve')
-	@include('home.modal')
+
+	@if($showSection->show_reservation)
+		@include('home.reserve')
+	@endif
+
+	@if($showSection->show_reservation)
+		@include('home.modal')
+	@endif
+	
 	@include('home.footer')
-		
-
-
 
 @endsection

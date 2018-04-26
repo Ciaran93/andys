@@ -68,6 +68,9 @@ Route::post('/admin/blog','BlogController@add')->name('blog.update');
 Route::get('/bookings','BookingsController@reply');
 
 
+///admin/show-sections
+Route::get('/admin/show-sections', 'ShowSectionsController@index');
+Route::post('/admin/show-sections/update', 'ShowSectionsController@update')->name('showSections.update');
 
 // AJAX
 Route::get('/admin/ajax/getMenuCategories/{id}','MenuCategoryController@getMenuCategoriesAjax');

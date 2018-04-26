@@ -1,5 +1,4 @@
 
-
 <div id="fh5co-menus" data-section="menu">
     <div class="container">
         <div class="row text-center fh5co-heading row-padded">
@@ -57,11 +56,5 @@
         </div>
     @endforeach
     </div>
-    
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4 text-center to-animate-2">
-                <!-- <p><a href="#" class="btn btn-primary btn-outline">More Food Menu</a></p> -->
-            </div>
-        </div>
     </div>
 </div>

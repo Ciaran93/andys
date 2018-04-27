@@ -20,9 +20,7 @@
 	@endif
 	<!-- @include('home.events') -->
 
-	@if($showSection->show_reservation)
-		@include('home.reserve')
-	@endif
+	@include('home.reserve')
 
 	@if($showSection->show_reservation)
 		@include('home.modal')

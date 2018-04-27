@@ -8,9 +8,9 @@
             </div>
         </div>
 
-<div class="w3-bar w3-black">
+<div class="col-md-12 text-center">
     @foreach( $sections as $section)
-        <button class="w3-bar-item w3-button" onclick="openMenu('{{ $section->name }}')">{{ $section->name }}</button>
+        <button class="snip1582" id="btn_{{ $section->name }}" onclick="openMenu('{{ $section->name }}')">{{ $section->name }}</button>
     @endforeach
 </div>
 

@@ -3,7 +3,7 @@
 				<div class="row text-center fh5co-heading row-padded">
 					<div class="col-md-8 col-md-offset-2">
 						<h2 class="heading to-animate">Reserve a Table</h2>
-						<p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<!-- <p class="sub-heading to-animate">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p> -->
 					</div>
 				</div>
 				<div class="row">
@@ -19,7 +19,9 @@
 							<!--<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>-->
 						</ul>
 					</div>
+					@if($showSection->show_reservation)
 					<div class="col-md-6 to-animate-2">
+
 						<h3>Reservation Form</h3>
 						<div class="form-group ">
 							<label for="name" class="sr-only">Name</label>
@@ -35,8 +37,6 @@
 							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
 						</div>
 
-
-							
 						<div class="form-group ">
 							<label for="message" class="sr-only">Message</label>
 							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
@@ -45,6 +45,7 @@
 							<input class="btn btn-primary" value="Send Message" type="submit">
 						</div>
 						</div>
+					@endif
 				</div>
 			</div>
 		</div>

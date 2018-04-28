@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAboutTable extends Migration
+class CreateMenuSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateAboutTable extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('menu_sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->integer('image_id')->nullable();
+            $table->string('name');
+            $table->string('description');
+            $table->integer('menu_id');
+            // $table->foreign('menu_id')->references('id')->on('menu');
+            $table->boolean('ceased')->default(false);
             $table->timestamps();
-
-            //ALTER TABLE about MODIFY content text;
-
         });
     }
 
@@ -32,8 +31,6 @@ class CreateAboutTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('menu_sections');
     }
 }
-
-

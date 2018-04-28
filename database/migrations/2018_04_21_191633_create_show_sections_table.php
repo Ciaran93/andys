@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAboutTable extends Migration
+class CreateShowSectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateAboutTable extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
+        Schema::create('show_sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->integer('image_id')->nullable();
+            $table->boolean('show_featured');
+            $table->boolean('show_gift');
+            $table->boolean('show_reservation');
+            $table->boolean('show_about');
             $table->timestamps();
-
-            //ALTER TABLE about MODIFY content text;
-
         });
     }
 
@@ -32,8 +30,6 @@ class CreateAboutTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('show_sections');
     }
 }
-
-

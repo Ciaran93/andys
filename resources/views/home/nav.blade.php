@@ -4,16 +4,36 @@
         <div class="container-fluid">
             <div class="fh5co-menu-1">
                 <a href="#" data-nav-section="home">Home</a>
-                <a href="#" data-nav-section="about">About</a>
-                <a href="#" data-nav-section="features">Features</a>
+
+                    @if($showSection->show_about)
+                        <a href="#" data-nav-section="about">About</a>
+                    @endif
+
+                    @if($showSection->show_featured)
+                        <a href="#" data-nav-section="features">Featured</a>
+                    @endif
+
             </div>
+
             <div class="fh5co-logo">
-                <a href="index.html">Andys</a>
+                <!-- <a href="index.html">Andys</a> -->
+                <img src="images/andys_logo_400_x_300.png" style="padding-top: 10px;" width="35%">
             </div>
+
             <div class="fh5co-menu-2">
-                <a href="#" data-nav-section="menu">Menu</a>
-                <a href="#" data-toggle="modal" data-target="#myModal">Gifts</a>
-                <a href="#" data-nav-section="reservation">Reservation</a>
+
+                @if($showSection->show_menu)
+                    <a href="#" data-nav-section="menu">Menu</a>
+                @endif
+
+                @if($showSection->show_gifts)
+                    <a href="#" data-toggle="modal" data-target="#myModal">Gifts</a>
+                @endif
+
+                @if($showSection->show_reservation)
+                    <a href="#" data-nav-section="reservation">Reservation</a>
+                @endif
+
             </div>
         </div>
         
@@ -31,7 +51,7 @@
                 <div class="row">
                     <!--<h1 class="to-animate">Andys</h1>
                     <h2 class="to-animate">Bar and Restaurant</a></h2>-->
-                    <img class="img-responsive center-block to-animate" src="images/Logo.png" alt="">
+                    <!-- <img class="img-responsive center-block to-animate" src="images/andys_logo_400_x_300_white.png" alt=""> -->
                         
                         
                         <ul  class="fh5co-social to-animate">
@@ -44,7 +64,7 @@
         </div>
         <ul class="slides">
         <li  style="background-image: url('images/andysbar-min.jpg');" data-stellar-background-ratio="1"></li>
-        <li style="background-image: url('images/andys5-min.jpg');" data-stellar-background-ratio="0.5"></li>
+        <!-- <li style="background-image: url('images/andys5-min.jpg');" data-stellar-background-ratio="0.5"></li> -->
         <!--<li style="background-image: url(images/slide_2.jpg);" data-stellar-background-ratio="0.5"></li>-->
         <!--<li style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5"></li>-->
         </ul>

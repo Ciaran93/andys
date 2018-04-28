@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAboutTable extends Migration
+class AddMenuSectionIdCategory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,8 @@ class CreateAboutTable extends Migration
      */
     public function up()
     {
-        Schema::create('about', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('title');
-            $table->text('content');
-            $table->integer('image_id')->nullable();
-            $table->timestamps();
-
-            //ALTER TABLE about MODIFY content text;
+        Schema::table('menu_categories', function (Blueprint $table) {
+            $table->jsonb('menu_section_id');
 
         });
     }
@@ -35,5 +29,3 @@ class CreateAboutTable extends Migration
         //
     }
 }
-
-

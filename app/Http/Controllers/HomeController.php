@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\MenuSectionController;
 
 class HomeController extends Controller
 {
@@ -15,13 +16,23 @@ class HomeController extends Controller
         $itemController = new ItemController();
         $items = $itemController->getAllItems();
         $itemsFeatured = $itemController->getFeaturedDishes();
+        
         $aboutController = new AboutController();
         $about = $aboutController->getLastRow();
 
+        $menuSectionController = new MenuSectionController();
+        $sections = $menuSectionController->getAllSections();
+
+        $catController = new MenuCategoryController();
+        $categories = $catController->getAllMenuCategories();
+        
         $blogController = new BlogController();
         $blogPosts = $blogController->getAllBlogPosts();
 
-        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts'));
+        $showSections = new ShowSectionsController();
+        $showSection = $showSections->getShowSection();
+
+        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'categories', 'showSection'));
     }
     public function index(){
         return view('comingsoon');

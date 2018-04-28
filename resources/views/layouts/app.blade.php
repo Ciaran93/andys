@@ -48,11 +48,21 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                         
-                        <li><a href="/admin/items">Menu</a></li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Menu <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/admin/menu/sections">Menu Sections</a></li>
+                                    <li><a href="/admin/menu/items">Menu Items</a></li>
+                                </ul>
+                            </li>
                         <li><a href="/admin/about">About</a></li>
-                        <li><a href="/admin/media">Media</a></li>
-                        <li><a href="/admin/blog">Blog</a></li>
-                        <li><a href="/admin/foods">Food Info</a></li>
+                        <li><a href="/admin/show-sections">Show Sections</a></li>
+                        <!-- <li><a href="/admin/media">Media</a></li> -->
+                        <!-- <li><a href="/admin/blog">Blog</a></li> -->
+                        <!-- <li><a href="/admin/foods">Food Info</a></li> -->
 
 
                         

@@ -15,7 +15,7 @@ class AboutController extends Controller
 
     public function getLastRow(){
 
-        return About::getLastRow();
+        return !empty(About::getLastRow()) ? About::getLastRow() : null;
     }
 
 

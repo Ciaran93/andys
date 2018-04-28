@@ -59,27 +59,9 @@
 	<script type="text/javascript" src="{{ URL::asset('js/jquery.flexslider-min.js') }}"></script>
 	
 
-	<script>
-		$(function () {
-	       $('#date').datetimepicker();
-	   });
-
-	function openMenu(menuName) {
-		var i;
-		var x = document.getElementsByClassName("Menu");
-		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none"; 
-		}
-		document.getElementById(menuName).style.display = "block"; 
-	}
-
-	$( document ).ready(function(){
-
-		openMenu('Starters');
-	});
-	</script>
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
+	<script src="js/home.js"></script>
 
 	</body>
 </html>

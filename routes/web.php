@@ -49,6 +49,15 @@ Route::post('/admin/menu/section/', 'MenuSectionController@update')->name('secti
 Route::get('/admin/show-sections', 'ShowSectionsController@index');
 Route::post('/admin/show-sections/update', 'ShowSectionsController@update')->name('showSections.update');
 
+
+// ADMIN :: RESERVATION
+Route::get('/admin/reservations', 'ReservationController@index');
+
+
 // AJAX
 Route::get('/admin/ajax/getMenuCategories/{id}','MenuCategoryController@getMenuCategoriesAjax');
+
+
+Route::post('/admin/ajax/addReservation','ReservationController@addReservation');
+
 

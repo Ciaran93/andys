@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
@@ -60,6 +59,7 @@
                             </li>
                         <li><a href="/admin/about">About</a></li>
                         <li><a href="/admin/show-sections">Show Sections</a></li>
+                        <li><a href="/admin/reservations/">Reservation</a></li>
                         <!-- <li><a href="/admin/media">Media</a></li> -->
                         <!-- <li><a href="/admin/blog">Blog</a></li> -->
                         <!-- <li><a href="/admin/foods">Food Info</a></li> -->

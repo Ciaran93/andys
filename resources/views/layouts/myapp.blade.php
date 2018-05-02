@@ -37,10 +37,8 @@
 	<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-	
-
 	<script type="text/javascript" src="{{ URL::asset('js/modernizr-2.6.2.min.js') }}"></script>
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 
 

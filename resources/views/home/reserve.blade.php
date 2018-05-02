@@ -21,30 +21,49 @@
 					</div>
 					@if($showSection->show_reservation)
 					<div class="col-md-6 to-animate-2">
-
-						<h3>Reservation Form</h3>
-						<div class="form-group ">
-							<label for="name" class="sr-only">Name</label>
-							<input id="name" class="form-control" placeholder="Name" type="text">
-						</div>
-						<div class="form-group ">
-							<label for="email" class="sr-only">Email</label>
-							<input id="email" class="form-control" placeholder="Email" type="email">
-						</div>
+					<div id="reservation_form">
+						<meta name="csrf-token" content="{{ csrf_token() }}">
 						
-						<div class="form-group ">
-							<label for="date" class="sr-only">Date</label>
-							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
-						</div>
+								<h3>Reservation Form</h3>
+								<div class="form-group ">
+									<label for="name" class="sr-only">Name</label>
+									<input name="name" id="name" class="form-control" placeholder="Name" type="text">
+								</div>
+								<div class="form-group ">
+									<label for="email" class="sr-only">Email</label>
+									<input name="email" id="email" class="form-control" placeholder="Email" type="email">
+								</div>
 
-						<div class="form-group ">
-							<label for="message" class="sr-only">Message</label>
-							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+								<div class="form-group ">
+									<label for="telephone" class="sr-only">Telephone</label>
+									<input name="telephone" id="telephone" class="form-control" placeholder="Telephone" type="number">
+								</div>
+								
+								<div class="form-group ">
+									<label for="date" class="sr-only">Date</label>
+									<input id="date" name="date" class="form-control datepicker" placeholder="Date" type="text">
+								</div>
+
+								<div class="form-group ">
+									<label for="date" class="sr-only">Time</label>
+									<input id="time" class="form-control" placeholder="Time" type="text">
+								</div>
+
+								<div class="form-group ">
+									<label for="message" class="sr-only">Message</label>
+									<textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+								</div>
+								<div class="form-group ">
+									<!-- <input data-sitekey="6Lf01FYUAAAAABexgoOgwEacOkMleri0_1xgwFaf" data-callback="YourOnSubmitFn" class="btn btn-primary g-recaptcha" value="Send Message" type="submit"> -->
+									<input id="reservation"  class="btn btn-primary g-recaptcha" value="Make Reservation" type="submit">
+								</div>
 						</div>
-						<div class="form-group ">
-							<input class="btn btn-primary" value="Send Message" type="submit">
-						</div>
-						</div>
+					</div>
+
+					<div id="success_div">
+						<h3>Thank you</h3>
+						<p>Blah Blah we will email you back if something happens.</p>
+					</div>
 					@endif
 				</div>
 			</div>

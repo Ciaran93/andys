@@ -49,8 +49,8 @@
         <div class="fh5co-text">
             <div class="container">
                 <div class="row">
-                    <!--<h1 class="to-animate">Andys</h1>
-                    <h2 class="to-animate">Bar and Restaurant</a></h2>-->
+                    <h1 class="to-animate main-text">Andys</h1>
+                    <h2 class="to-animate">Bar and Restaurant</a></h2>
                     <!-- <img class="img-responsive center-block to-animate" src="images/andys_logo_400_x_300_white.png" alt=""> -->
                         
                         

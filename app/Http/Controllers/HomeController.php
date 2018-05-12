@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
 
 
-    public function willBeindex()
+    public function index()
     {
         $itemController = new ItemController();
         $items = $itemController->getAllItems();
@@ -26,26 +26,10 @@ class HomeController extends Controller
         $catController = new MenuCategoryController();
         $categories = $catController->getAllMenuCategories();
         
-        $blogController = new BlogController();
-        $blogPosts = $blogController->getAllBlogPosts();
-
         $showSections = new ShowSectionsController();
         $showSection = $showSections->getShowSection();
 
-        return view('home',compact('items','about', 'itemsFeatured', 'blogPosts', 'sections', 'categories', 'showSection'));
-    }
-    public function index(){
-        return view('comingsoon');
-        
-    }
-
-
-    public function about(){
-        return view('home.aboutSingle');
-    }
-
-    public function history(){
-        return view('home.history');
+        return view('home',compact('items','about', 'itemsFeatured', 'sections', 'categories', 'showSection'));
     }
 
 }

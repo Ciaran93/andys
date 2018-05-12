@@ -10,18 +10,16 @@ Whether you want a drink that's long or short, refreshing or sweet, gin is the p
 					</div>
 				</div>
 				<div class="row">
-				    @foreach($blogPosts as $post)
 						<div class="col-md-4">
 							<div class="fh5co-event to-animate-2">
-								<h3>{{ $post->title }}</h3>
-								<span class="fh5co-event-meta">{{ $post->created_at }}</span>
+								<h3>text</h3>
+								<span class="fh5co-event-meta">text</span>
 								<img src="images/bramble.jpg" class="img-responsive" alt="Free HTML5 Templates by FREEHTML5.co">
 
-								<p>{{  str_limit($post->body, 45) }}</p>
-								<p><a href="/blog/{{$post->id}}" class="btn btn-primary btn-outline">Read More</a></p>
+								<p>text</p>
+								<p><a href="" class="btn btn-primary btn-outline">Read More</a></p>
 							</div>
 						</div>
-					@endforeach
 					
 				</div>
 			</div>

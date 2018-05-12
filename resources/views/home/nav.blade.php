@@ -55,9 +55,9 @@
                         
                         
                         <ul  class="fh5co-social to-animate">
-                            <li class=""><a href="#"><i class="icon-facebook"></i></a></li>
-                            <li class=""><a href="#"><i class="icon-twitter"></i></a></li>
-                            <li class=""><a href="#"><i class="icon-instagram"></i></a></li>
+                            <li class=""><a target="_blank" href="https://www.facebook.com/Andys-Bar-Restaurant-Monaghan-124952790865262/"><i class="icon-facebook"></i></a></li>
+                            <li class=""><a target="_blank" href="https://www.tripadvisor.ie/Restaurant_Review-g186630-d1151059-Reviews-Andy_s-Monaghan_County_Monaghan.html"><i class="icon-tripadvisor"></i></a></li>
+                            <!-- <li class=""><a href="#"><i class="icon-instagram"></i></a></li> -->
 					    </ul>
                 </div>
             </div>

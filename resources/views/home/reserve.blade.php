@@ -15,36 +15,59 @@
 								12 Market Street, Monaghan,<br>Ireland
 							</li>
 							<li><i class="icon-phone"></i>+353 47 82277</li>
-							<li><i class="icon-envelope"></i>info@andys.com</li>
+							<li><i class="icon-envelope"></i>info@andysmonaghan.com</li>
 							<!--<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>-->
 						</ul>
 					</div>
 					@if($showSection->show_reservation)
 					<div class="col-md-6 to-animate-2">
-
-						<h3>Reservation Form</h3>
-						<div class="form-group ">
-							<label for="name" class="sr-only">Name</label>
-							<input id="name" class="form-control" placeholder="Name" type="text">
-						</div>
-						<div class="form-group ">
-							<label for="email" class="sr-only">Email</label>
-							<input id="email" class="form-control" placeholder="Email" type="email">
-						</div>
+					<div id="reservation_form">
+						<meta name="csrf-token" content="{{ csrf_token() }}">
 						
-						<div class="form-group ">
-							<label for="date" class="sr-only">Date</label>
-							<input id="date" class="form-control" placeholder="Date &amp; Time" type="text">
-						</div>
+								<h3>Reservation Form</h3>
+								<div class="form-group ">
+									<label for="name" class="sr-only">Name</label>
+									<input name="name" id="name" class="form-control" placeholder="Name" type="text">
+								</div>
+								<div class="form-group ">
+									<label for="email" class="sr-only">Email</label>
+									<input name="email" id="email" class="form-control" placeholder="Email" type="email">
+								</div>
 
-						<div class="form-group ">
-							<label for="message" class="sr-only">Message</label>
-							<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+								<div class="form-group ">
+									<label for="telephone" class="sr-only">Telephone</label>
+									<input name="telephone" id="telephone" class="form-control" placeholder="Telephone" type="number">
+								</div>
+								
+								<div class="form-group">
+									<div class="col-md-6 form-group">
+										<input id="date" name="date" class="form-control datepicker" placeholder="Date" type="text">
+									</div>
+									<div class="col-md-6 form-group">
+										<input id="time" class="form-control" placeholder="Time" type="text">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="People" class="sr-only">People</label>
+									<input id="people" class="form-control" placeholder="People" type="number">
+								</div>
+
+								<div class="form-group ">
+									<label for="message" class="sr-only">Message</label>
+									<textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
+								</div>
+								<div class="form-group ">
+									<!-- <input data-sitekey="6Lf01FYUAAAAABexgoOgwEacOkMleri0_1xgwFaf" data-callback="YourOnSubmitFn" class="btn btn-primary g-recaptcha" value="Send Message" type="submit"> -->
+									<input id="reservation"  class="btn btn-primary g-recaptcha" value="Make Reservation" type="submit">
+								</div>
 						</div>
-						<div class="form-group ">
-							<input class="btn btn-primary" value="Send Message" type="submit">
-						</div>
-						</div>
+					</div>
+
+					<div id="success_div" style="display:none;">
+						<h3>Thank you</h3>
+						<p>You will recieve a email to confirm your booking.</p>
+					</div>
 					@endif
 				</div>
 			</div>

@@ -10,9 +10,9 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<ul class="fh5co-social">
-						<li class="to-animate-2"><a href="#"><i class="icon-facebook"></i></a></li>
-						<li class="to-animate-2"><a href="#"><i class="icon-twitter"></i></a></li>
-						<li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li>
+						<li class="to-animate-2"><a target="_blank" href="https://www.facebook.com/Andys-Bar-Restaurant-Monaghan-124952790865262/"><i class="icon-facebook"></i></a></li>
+						<li class="to-animate-2"><a target="_blank" href="https://www.tripadvisor.ie/Restaurant_Review-g186630-d1151059-Reviews-Andy_s-Monaghan_County_Monaghan.html"><i class="icon-tripadvisor"></i></a></li>
+						<!-- <li class="to-animate-2"><a href="#"><i class="icon-instagram"></i></a></li> -->
 					</ul>
 				</div>
 			</div>

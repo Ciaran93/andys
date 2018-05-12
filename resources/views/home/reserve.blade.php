@@ -15,7 +15,7 @@
 								12 Market Street, Monaghan,<br>Ireland
 							</li>
 							<li><i class="icon-phone"></i>+353 47 82277</li>
-							<li><i class="icon-envelope"></i>info@andys.com</li>
+							<li><i class="icon-envelope"></i>info@andysmonaghan.com</li>
 							<!--<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>-->
 						</ul>
 					</div>
@@ -39,14 +39,18 @@
 									<input name="telephone" id="telephone" class="form-control" placeholder="Telephone" type="number">
 								</div>
 								
-								<div class="form-group ">
-									<label for="date" class="sr-only">Date</label>
-									<input id="date" name="date" class="form-control datepicker" placeholder="Date" type="text">
+								<div class="form-group">
+									<div class="col-md-6 form-group">
+										<input id="date" name="date" class="form-control datepicker" placeholder="Date" type="text">
+									</div>
+									<div class="col-md-6 form-group">
+										<input id="time" class="form-control" placeholder="Time" type="text">
+									</div>
 								</div>
 
-								<div class="form-group ">
-									<label for="date" class="sr-only">Time</label>
-									<input id="time" class="form-control" placeholder="Time" type="text">
+								<div class="form-group">
+									<label for="People" class="sr-only">People</label>
+									<input id="people" class="form-control" placeholder="People" type="number">
 								</div>
 
 								<div class="form-group ">
@@ -60,9 +64,9 @@
 						</div>
 					</div>
 
-					<div id="success_div">
+					<div id="success_div" style="display:none;">
 						<h3>Thank you</h3>
-						<p>Blah Blah we will email you back if something happens.</p>
+						<p>You will recieve a email to confirm your booking.</p>
 					</div>
 					@endif
 				</div>

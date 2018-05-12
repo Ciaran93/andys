@@ -16,9 +16,8 @@
                         <th>Telephone</th>
                         <th>Date</th>
                         <th>Time</th>
+                        <th>People</th>
                         <th>Message</th>
-                        <th>Accept</th>
-                        <th>Decline</th>
                     </tr>
                 </thead>
 
@@ -30,14 +29,13 @@
                             <td>{{ $reservation->telephone }}</td>
                             <td>{{ $reservation->date }}</td>
                             <td>{{ $reservation->time }}</td>
+                            <td>{{ $reservation->number_of_people }}</td>
                             <td>{{ $reservation->message }}</td>
-                            <td><a href="/admin/editItem/" class="button">Accept</a></td>
-                            <td><a href="/admin/delete/" class="button" onclick="comfirmDelete();">Decline</a></td>
                         </tr>
                 @endforeach
                 </tbody>
                 </table>
-
+            <!-- <a type="submit" href="/admin/reservations/export" class="button">Export To Excel</a> -->
         @endisset
                 
 @endsection

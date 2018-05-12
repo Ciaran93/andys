@@ -52,6 +52,7 @@ Route::post('/admin/show-sections/update', 'ShowSectionsController@update')->nam
 
 // ADMIN :: RESERVATION
 Route::get('/admin/reservations', 'ReservationController@index');
+Route::get('/admin/reservations/export', 'ReservationController@exportReservations');
 
 
 // AJAX

@@ -42,6 +42,7 @@ $( document ).ready(function(){
             var date = $('#date').val();
             var time = $('#time').val();
             var message = $('#message').val();
+            var people = $('#people').val();
 
             $.ajaxSetup({
                 headers: {
@@ -49,9 +50,9 @@ $( document ).ready(function(){
                 }
         });
 
-            $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone }, function(data){
+            $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone, people:people }, function(data){
 
-                if(data == 'success'){
+                if(data == 'success email sent'){
                     $('#reservation_form').hide();
                     $('#success_div').show();
                 }
@@ -71,6 +72,7 @@ function validateReservationForm(){
     var telephone = $('#telephone').val();
     var date = $('#date').val();
     var time = $('#time').val();
+    var people = $('#people').val();
 
     var message = '';
 
@@ -92,6 +94,10 @@ function validateReservationForm(){
 
     if(time == ''){
         message += '\n- Please enter a time';
+    }
+
+    if(people == ''){
+        message += '\n- Please enter number of people';
     }
 
     if(message != ''){

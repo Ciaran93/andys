@@ -8,9 +8,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Andys &mdash; Bar & Restaurant Monaghan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Andy's Bar and Restaurant Monaghan" />
+	<meta name="keywords" content="andys, monaghan, bar,restaurant, opening hours, contact,reservation, book" />
+	<meta name="author" content="andys" />
   	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
@@ -39,6 +39,18 @@
 	<link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
 	<script type="text/javascript" src="{{ URL::asset('js/modernizr-2.6.2.min.js') }}"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41079558-5"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-41079558-5');
+		</script>
+
 	</head>
 
 

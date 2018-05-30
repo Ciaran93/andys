@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="row row-padded">
 				<div class="col-md-12 text-center">
-					<p class="to-animate">&copy; 2017 Andy's Bar and Restaurant. <br> Built by <a href="#" target="_blank">ciaranmccaughey.com</a>
+					<p class="to-animate">&copy; 2017 Andy's Bar and Restaurant. <br> Built by <a href="http://ciaranmccaughey.com" target="_blank">ciaranmccaughey.com</a>
 					</p>
 					<p class="text-center to-animate"><a href="#" class="js-gotop">Go To Top</a></p>
 				</div>

@@ -4,16 +4,16 @@ DirectoryIndex index.php
     <IfModule mod_negotiation.c>
         Options -MultiViews
     </IfModule>
-    RedirectMatch 404 /\.git
+RedirectMatch 404 /\.git
 
     RewriteEngine On
-    RewriteCond %{HTTP_HOST} !^www\.
-    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    RewriteCond %{HTTPS} off
-    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
     RewriteRule ^(.*) - [E=BASE:%1]
 
     RewriteCond %{ENV:REDIRECT_STATUS} ^$

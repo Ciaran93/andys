@@ -29,12 +29,18 @@ class MenuSectionController extends Controller
      */
     public function create(Request $request)
     {
-
         $section = new MenuSection();
         $section->name = $request->name;
         $section->description = $request->description;
         $section->menu_id = 1;
-        $section->save();
+        
+        if($section->save()){
+            // Make default of NONE
+            $category = new MenuCategory();
+            $category->name = 'NONE';
+            $category->menu_section_id = $section->id;
+            $category->save();
+        }
 
         return $this->index();
         

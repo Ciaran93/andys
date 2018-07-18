@@ -18,7 +18,10 @@
 	@if($showSection->show_menu)
 		@include('home.menu')
 	@endif
-	<!-- @include('home.events') -->
+
+	@if($showSection->show_gift)
+		@include('gift.giftsection')
+	@endif
 
 	@include('home.reserve')
 

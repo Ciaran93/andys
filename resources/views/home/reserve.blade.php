@@ -58,7 +58,7 @@
 									<textarea name="message" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
 								</div>
 								<div class="form-group ">
-									<!-- <input data-sitekey="6Lf01FYUAAAAABexgoOgwEacOkMleri0_1xgwFaf" data-callback="YourOnSubmitFn" class="btn btn-primary g-recaptcha" value="Send Message" type="submit"> -->
+									<!-- <input data-sitekey="6Lf01FYUAAAAxpABexgoOgwEacOkMleri0_1xgwFaf" data-callback="YourOnSubmitFn" class="btn btn-primary g-recaptcha" value="Send Message" type="submit"> -->
 									<input id="reservation"  class="btn btn-primary g-recaptcha" value="Make Reservation" type="submit">
 								</div>
 						</div>
@@ -66,7 +66,7 @@
 
 					<div id="success_div" style="display:none;">
 						<h3>Thank you</h3>
-						<p>You will recieve a email to confirm your booking.</p>
+						<p>You will receive a email to confirm your booking.</p>
 					</div>
 					@endif
 				</div>

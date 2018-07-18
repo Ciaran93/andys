@@ -106,13 +106,15 @@
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi {{$request->name}},</p>
                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">
                         
-                        Thank you for your reservation:
+                        Your reservation has been made:
 
                         <ul>
                             <li>Date: {{ $request->date }}</li>
-                            <li>Date: {{ $request->time }}</li>
+                            <li>Time: {{ $request->time }}</li>
                         
                         </ul>
+
+                        <p>We will be in contact with you to confirm your booking.</p>
                         
                         </p>
                         <!-- <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">

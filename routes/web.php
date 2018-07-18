@@ -14,6 +14,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/gift', 'GiftController@index');
+Route::post('/gift/charge', 'GiftController@charge');
+
+
 //Admin
 Route::get('/admin', 'AdminController@index');
 

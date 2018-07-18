@@ -30,7 +30,9 @@ $( document ).ready(function(){
 
     $('#time').datetimepicker({
         format: 'LT',
-        stepping: 15
+        stepping: 15,
+        useCurrent: true,
+
     });
 
     $('#reservation').click(function(){
@@ -52,7 +54,7 @@ $( document ).ready(function(){
 
             $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone, people:people }, function(data){
 
-                if(data == 'success email sent'){
+                if(data == 'success'){
                     $('#reservation_form').hide();
                     $('#success_div').show();
                 }

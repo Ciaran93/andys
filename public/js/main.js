@@ -579,7 +579,6 @@
 		navigationSection();
 		goToTop();
 
-
 		// Animations
 		homeAnimate();
 		aboutAnimate();

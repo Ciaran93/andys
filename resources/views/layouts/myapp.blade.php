@@ -40,6 +40,12 @@
 	<script type="text/javascript" src="{{ URL::asset('js/modernizr-2.6.2.min.js') }}"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
+	  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<link href="{{ asset('css/gift.css') }}" rel="stylesheet">
+		<script src="{{ asset('js/gift.js') }}"></script>
+		<script src="https://js.stripe.com/v3/"></script>
+		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41079558-5"></script>

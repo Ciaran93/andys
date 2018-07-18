@@ -5,21 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Reservation;
 use PHPMailer\PHPMailer\PHPMailer;
-
+use Log;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
 
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
-
     public function index(){
 
-        $reservations = Reservation::orderByRaw('created_at DESC')->get();
-        return view('admin.reservation.viewAll')->with(compact('reservations'));
-
+        if (Auth::check()) {
+            $reservations = Reservation::orderByRaw('created_at DESC')->get();
+            return view('admin.reservation.viewAll')->with(compact('reservations'));
+        } else {
+            return redirect('login');
+        }
     }
 
     public function addReservation(Request $request){
@@ -46,9 +45,8 @@ class ReservationController extends Controller
             }
             $reservation->save();
 
-            echo 'success';
-
             $this->sendEmailReservation($request);
+            echo 'success'; exit;
 
         }
 
@@ -67,7 +65,6 @@ class ReservationController extends Controller
 
         $mail = new PHPMailer;
 
-        $mail->isSMTP();
         $mail->Host = 'auth.smtp.1and1.co.uk';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@andysmonaghan.com';
@@ -84,10 +81,9 @@ class ReservationController extends Controller
         $mail->Body    = view('email.email')->with(compact('request'));
         
         if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            $message = 'Message could not be sent.';
+            $message .= 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            echo ' email sent';
 
             $this->sendHostEmailReservation($request);
         }
@@ -105,7 +101,6 @@ class ReservationController extends Controller
 
         $mail = new PHPMailer;
 
-        $mail->isSMTP();
         $mail->Host = 'auth.smtp.1and1.co.uk';
         $mail->SMTPAuth = true;
         $mail->Username = 'info@andysmonaghan.com';
@@ -115,33 +110,15 @@ class ReservationController extends Controller
         $mail->From = 'info@andysmonaghan.com';
         $mail->FromName = "Andy's Monaghan";
         $mail->addAddress('mccaugheyciaran@gmail.com');
+        $mail->addAddress('kevinredmondacd@hotmail.com');
         
         $mail->isHTML(true);
         
-        $mail->Subject = 'Reservation has been recieved.';
+        $mail->Subject = 'Reservation has been received.';
         $mail->Body    = view('email.emailHost')->with(compact('request'));
         
         $mail->send();
     }
 
 
-    // function exportReservations(){
-    //     $reservations = Reservation::all()->toArray();
-        
-    //     $filename = 'resevations.csv';
-    //     $file = fopen($filename,"w");
-
-    //     foreach($reservations as $reservation){
-            
-    //         fputcsv($file, $reservation);
-    //     }
-
-    //     header('Content-Type: text/csv; charset=utf-8');
-    //     header('Content-Disposition: attachment; filename="'.$filename.'";');
-    //     exit();
-    //     fclose($file);
-
-    //     // return $this->index();
-
-    // }
 }

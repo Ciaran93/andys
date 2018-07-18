@@ -53,6 +53,10 @@
       }
     }
 
+    .reservation-details {
+      font-size: 20px;
+    }
+
     /* -------------------------------------
         PRESERVE THESE STYLES IN THE HEAD
     ------------------------------------- */
@@ -107,12 +111,13 @@
                         
                         Reservation has been made:
 
-                        <ul>
+                        <ul class="reservation-details">
                             <li>Name: {{ $request->name }}</li>
                             <li>Email: {{ $request->email }}</li>
                             <li>Telephone: {{ $request->telephone }}</li>
                             <li>Date: {{ $request->date }}</li>
                             <li>Time: {{ $request->time }}</li>
+                            <li>People: {{ $request->people }}</li>
                             <li>Message: {{ $request->message }}</li>
                         </ul>
                         

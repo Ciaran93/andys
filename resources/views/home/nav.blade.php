@@ -26,8 +26,8 @@
                     <a href="#" data-nav-section="menu">Menu</a>
                 @endif
 
-                @if($showSection->show_gifts)
-                    <a href="#" data-toggle="modal" data-target="#myModal">Gifts</a>
+                @if($showSection->show_gift)
+                    <a href="#" data-nav-section="gift">Gift Voucher</a>
                 @endif
 
                 @if($showSection->show_reservation)

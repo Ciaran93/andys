@@ -17,10 +17,12 @@ class CreateGiftVouchersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email');
-            $table->string('recipents_name');
-            $table->string('recipents_email');
             $table->string('amount');
-            $table->longText('message')->nullable();
+            $table->string('remaining');
+            $table->string('recipient_name');
+            $table->string('recipient_email')->nullable();
+            $table->boolean('redeemed')->default(false);
+            $table->date('redeemed_date')->nullable();
             $table->timestamps();
         });
     }

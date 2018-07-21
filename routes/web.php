@@ -14,9 +14,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/gift', 'GiftController@index');
 Route::post('/gift/charge', 'GiftController@charge');
-
+Route::get('/gift/thanks', 'GiftController@showGiftVoucher');
 
 //Admin
 Route::get('/admin', 'AdminController@index');
@@ -58,11 +57,17 @@ Route::post('/admin/show-sections/update', 'ShowSectionsController@update')->nam
 Route::get('/admin/reservations', 'ReservationController@index');
 Route::get('/admin/reservations/export', 'ReservationController@exportReservations');
 
+// ADMIN :: GIFT VOUCHERS
+Route::get('/admin/giftvouchers/', 'GiftController@admin');
+Route::get('/admin/giftvouchers/redeemVoucher/{id}', 'GiftController@redeemVoucher');
+
 
 // AJAX
 Route::get('/admin/ajax/getMenuCategories/{id}','MenuCategoryController@getMenuCategoriesAjax');
 
 
 Route::post('/admin/ajax/addReservation','ReservationController@addReservation');
+
+Route::post('/admin/ajax/redeemAjax','GiftController@redeemAjax');
 
 

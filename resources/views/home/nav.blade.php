@@ -9,6 +9,10 @@
                         <a href="#" data-nav-section="about">About</a>
                     @endif
 
+                     @if($showSection->show_menu)
+                        <a href="#" data-nav-section="menu">Menu</a>
+                    @endif
+
                     @if($showSection->show_featured)
                         <a href="#" data-nav-section="features">Featured</a>
                     @endif
@@ -22,11 +26,8 @@
 
             <div class="fh5co-menu-2">
 
-                @if($showSection->show_menu)
-                    <a href="#" data-nav-section="menu">Menu</a>
-                @endif
-
-                @if($showSection->show_gift)
+               
+               @if($showSection->show_gift)
                     <a href="#" data-nav-section="gift">Gift Voucher</a>
                 @endif
 

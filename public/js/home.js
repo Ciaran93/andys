@@ -50,7 +50,7 @@ $( document ).ready(function(){
                 headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-        });
+            });
 
             $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone, people:people }, function(data){
 

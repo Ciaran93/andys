@@ -27,6 +27,7 @@
 
                         @if($category->name != 'NONE')
                             {{ $category->name }}
+                            
                         @endif    
                         </h2>
                     

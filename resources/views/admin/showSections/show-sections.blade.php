@@ -4,7 +4,7 @@
 @section('content')
 
     {{ Form::open(array('route' => 'showSections.update', 'class' => 'form')) }}
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-3 col-md-offset-3">
 
             <div class="form-group">
                 <label for="show_menu">Show Menu </label>
@@ -20,6 +20,11 @@
                 <label for="show_menu">Show Featured </label>
                 <input type="checkbox" name="show_featured" @if($section->show_featured) checked @endif></input>
             </div>
+            {{ Form::submit('Update', array('class' => 'btn btn-success btn-lg'))}}
+
+        </div>
+
+        <div class="col-md-3">
 
             <div class="form-group">
                 <label for="show_menu">Show Tripadvisor </label>
@@ -37,7 +42,6 @@
             </div>
 
 
-            {{ Form::submit('Update', array('class' => 'btn btn-success btn-lg'))}}
             
         </div>
 

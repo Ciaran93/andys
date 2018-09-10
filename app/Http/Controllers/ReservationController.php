@@ -15,15 +15,34 @@ class ReservationController extends Controller
 
         if (Auth::check()) {
             $reservations = Reservation::orderByRaw('created_at DESC')->get();
+            $reservations = self::checkIfReservationHasPassed($reservations);
             return view('admin.reservation.viewAll')->with(compact('reservations'));
         } else {
             return redirect('login');
         }
     }
 
+    public function checkIfReservationHasPassed($reservations = null){
+
+        if($reservations != null){
+
+            foreach($reservations as &$reservation){
+
+                if($reservation->date <= date('Y-m-d')){
+                    $reservation->reservation_passed = true;
+                }
+
+            }
+            
+            return $reservations;
+        }
+
+    }
+
     public function addReservation(Request $request){
 
         if($request->ajax()){
+
 
             $name = $request->name;
             $email = $request->email;
@@ -110,7 +129,7 @@ class ReservationController extends Controller
         $mail->From = 'info@andysmonaghan.com';
         $mail->FromName = "Andy's Monaghan";
         $mail->addAddress('mccaugheyciaran@gmail.com');
-        $mail->addAddress('kevinredmondacd@hotmail.com');
+        // $mail->addAddress('kevinredmondacd@hotmail.com');
         
         $mail->isHTML(true);
         

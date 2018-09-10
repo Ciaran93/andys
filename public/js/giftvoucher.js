@@ -32,6 +32,7 @@ function redeemVoucher(){
 
             $('#amount_row_' + id).text(response.data);
             $('#voucher_row_' + id).addClass('success');
+            $('#voucher_row_' + id).removeClass('active');
 
         }
     });
@@ -56,6 +57,8 @@ function showRedeemModal(id, row){
     // set the amount and voucher id to a hidden inputs to access later
     $('#redeemModal #remaining_amount_val').val(amount);
     $('#redeemModal #voucher_id').val(id);
+
+    $('#voucher_row_' + id).addClass('active');
 
 }
 

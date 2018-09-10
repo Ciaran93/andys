@@ -52,8 +52,8 @@ $( document ).ready(function(){
                 }
             });
 
-            $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone, people:people }, function(data){
 
+            $.post('admin/ajax/addReservation', { name:name, email:email, date:date, time:time, message:message, telephone:telephone, people:people }, function(data){
                 if(data == 'success'){
                     $('#reservation_form').hide();
                     $('#success_div').show();

@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<head>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-</head>
+
 <script src="{{ asset('js/giftvoucher.js') }}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
@@ -13,23 +11,20 @@
 <button onClick="$('#stats').toggle();" id='show-table-button'>View Stats</button>
 
     <div class="row" id="stats" style="display:none">
-        <div class="col-md-3 col-md-offset-2">
+        <div class="col-md-4 col-md-offset-2">
             <h3>Total Purchased: &euro;<span id="total_purchased"></span></h3>
             <h3>Total Redeemed: &euro;<span id="total_redeemed"></span></h3>
-            <h3>Total Remaining: &euro;<span id="total_outstanding"></span></h3>
+            <h3>Total Outstanding: &euro;<span id="total_outstanding"></span></h3>
         </div>
         <div class="col-md-3">
             <canvas id="myChart" width="400" height="400"></canvas>
         </div>
-        
     </div>
-
 
     <div class="row" id="outstanding_voucher_table">
         <div class="col-md-12">
         @isset($vouchers)
             <h4>Oustanding Vouchers</h4>
-
                 <table class="table table-striped table-condensed">
                 <thead>
                     <tr>
@@ -37,8 +32,8 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Recipient</th>
-                        <th>Amount</th>
-                        <th>Date</th>
+                        <th>Amount<br>remaining</th>
+                        <th>Purchased</th>
                         <th>Redeem</th>
                     </tr>
                 </thead>
@@ -52,7 +47,7 @@
                                 <td>{{ $voucher->email }}</td>
                                 <td>{{ $voucher->recipient_name }}</td>
                                 <td id="amount_row_{{ $voucher->id }}">{{ $voucher->remaining }}</td>
-                                <td>{{ $voucher->created_at }}</td>
+                                <td>{{\Carbon\Carbon::parse($voucher->created_at)->format('d/m/Y') }}</td>
                                 <td><button id="redeem_button_{{ $voucher->id}}" class="btn btn-default" onClick="showRedeemModal({{$voucher->id}}, this)">Redeem</button> </td>
                             </tr>
                     @endif
@@ -90,7 +85,7 @@
                                 <td>{{ $voucher->email }}</td>
                                 <td>{{ $voucher->recipient_name }}</td>
                                 <td>{{ $voucher->amount }}</td>
-                                <td>{{ $voucher->created_at }}</td>
+                                <td>{{\Carbon\Carbon::parse($voucher->created_at)->format('d/m/Y') }}</td>
                                 <td>{{ $voucher->redeemed_date }}</td>
                             </tr>
                     @endif
@@ -130,6 +125,7 @@
 
   </div>
 </div>
+
 <input type="hidden" value="{{ $voucher_data }}" id="voucher_data">           
 @endsection
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -158,53 +154,5 @@
         loadChart();
 
     });
-
-function loadChart(voucher_data){
-    var data = JSON.parse($('#voucher_data').val());
-    
-    var labels = [];
-    var chart_data = [];
-    
-    $.each(data, function (key, value) {
-
-        $('#'+key).text(value);
-
-        key = key.replace('_', ' ');
-        key = capitalizeFirstLetter(key);
-        labels.push(key);
-        chart_data.push(value);
-        
-    });
-
-
-    var ctx = document.getElementById("myChart").getContext('2d');
-
-    var myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: '# of Votes',
-                data: chart_data,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                ],
-                borderWidth: 1
-            }]
-        }
-    });
-
-}
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 </script>

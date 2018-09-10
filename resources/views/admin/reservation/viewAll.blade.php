@@ -4,6 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        <button onClick="toggleRervationTable();" id='show-table-button'>View Past Reservations</button>
 
         @isset($reservations)
             <h4>Reservations</h4>
@@ -18,24 +19,38 @@
                         <th>Time</th>
                         <th>People</th>
                         <th>Message</th>
-                        <th>Accept</th>
-                        <th>Decline</th>
                     </tr>
                 </thead>
 
-               <tbody>
+               <tbody id="upcomming_reservations_table">
                 @foreach ($reservations as $reservation)
-                        <tr>
-                            <td>{{ $reservation->name }} </td>
-                            <td>{{ $reservation->email }}</td>
-                            <td>{{ $reservation->telephone }}</td>
-                            <td>{{ $reservation->date }}</td>
-                            <td>{{ $reservation->time }}</td>
-                            <td>{{ $reservation->number_of_people }}</td>
-                            <td>{{ $reservation->message }}</td>
-                            <td><button class="btn btn-default" type="submit">Accept</button></td>
-                            <td><button class="btn btn-default" type="submit">Decline</button></td>
-                        </tr>
+                    @if(!$reservation->reservation_passed)
+                            <tr>
+                                <td>{{ $reservation->name }} </td>
+                                <td>{{ $reservation->email }}</td>
+                                <td>{{ $reservation->telephone }}</td>
+                                <td>{{\Carbon\Carbon::parse($reservation->date)->format('d/m/Y') }}</td>
+                                <td>{{ $reservation->time }}</td>
+                                <td>{{ $reservation->number_of_people }}</td>
+                                <td>{{ $reservation->message }}</td>
+                            </tr>
+                    @endif
+                @endforeach
+                </tbody>
+
+                <tbody  id="reservation_passed_table" style="display:none;">
+                @foreach ($reservations as $reservation)
+                    @if($reservation->reservation_passed)
+                            <tr>
+                                <td>{{ $reservation->name }} </td>
+                                <td>{{ $reservation->email }}</td>
+                                <td>{{ $reservation->telephone }}</td>
+                                <td>{{\Carbon\Carbon::parse($reservation->date)->format('d/m/Y') }}</td>
+                                <td>{{ $reservation->time }}</td>
+                                <td>{{ $reservation->number_of_people }}</td>
+                                <td>{{ $reservation->message }}</td>
+                            </tr>
+                    @endif
                 @endforeach
                 </tbody>
                 </table>
@@ -43,3 +58,22 @@
         @endisset
                 
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script>
+
+function toggleRervationTable(){
+
+    $('#reservation_passed_table').toggle();
+    $('#upcomming_reservations_table').toggle();
+
+    if($('#show-table-button').text() == 'View Past Reservations'){
+        $('#show-table-button').text('View Upcoming Reservations');
+    } else {
+        $('#show-table-button').text('View Past Reservations');
+    }
+    
+}
+
+</script>

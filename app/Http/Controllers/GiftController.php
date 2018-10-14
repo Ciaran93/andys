@@ -54,23 +54,23 @@ class GiftController extends Controller
 
     public function charge(Request $request){
         
-        // Stripe::setApiKey(env('STRIPE_API_KEY', ''));
+        Stripe::setApiKey(env('STRIPE_API_KEY', ''));
 
-        // // Token is created using Checkout or Elements!
-        // // Get the payment token ID submitted by the form:
-        // $token = $request->input('stripeToken');
-        // $amount = $request->input('amount');
+        // Token is created using Checkout or Elements!
+        // Get the payment token ID submitted by the form:
+        $token = $request->input('stripeToken');
+        $amount = $request->input('amount');
 
-        // // stripe take payments in cents, multiple by 100 here
-        // // we arent doing them out of money
-        // $amount = $amount * 100; 
+        // stripe take payments in cents, multiple by 100 here
+        // we arent doing them out of money ;)
+        $amount = $amount * 100; 
 
-        // $charge = \Stripe\Charge::create([
-        //     'amount' => $amount,
-        //     'currency' => 'EUR',
-        //     'description' => 'Gift Voucher',
-        //     'source' => $token,
-        // ]);
+        $charge = \Stripe\Charge::create([
+            'amount' => $amount,
+            'currency' => 'EUR',
+            'description' => 'Gift Voucher',
+            'source' => $token,
+        ]);
 
         // save the gift voucher
         $voucherObj = self::save($request);
@@ -83,18 +83,6 @@ class GiftController extends Controller
         $voucher->email = $voucherObj->email;
         $voucher->recipient_name = $voucherObj->recipient_name;
         $voucher->amount = $voucherObj->amount;
-
-        // $voucher->id = "00000001";
-        // $voucher->name = 'Ciaran';
-        // $voucher->email = 'emailfrom@test.com';
-        // $voucher->recipient_name = 'Steve';
-        // $voucher->recipient_email = 'test';
-        // $voucher->amount = 50;
-        // echo '<pre>'; print_r(view('gift.giftvoucher')->with(compact('voucher'))); exit;
-        // $view = View::make('gift.giftvoucher', ['voucher' => $voucher]);
-        // $contents = (string) $view;
-        // echo '<pre>'; print_r(htmlspecialchars($contents)); exit;
-        // return $view;
 
         $this->emailVoucher($voucher);
         

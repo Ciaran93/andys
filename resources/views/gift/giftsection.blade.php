@@ -13,19 +13,18 @@
                         <div id="errors" style="display:none;"></div>
 
                         <div class="form-group">  
-                            <label for="name">Your Full Name</label>
+                            <label>Your Full Name</label>
                             <input type="text" name="name" class="form-control" placeholder="Enter your name">
                             
-                            <label for="name">Your Email</label>
+                            <label>Your Email</label>
                             <input type="text" name="email" class="form-control" placeholder="Enter your email">
                         </div>
 
                         <div class="form-group">  
-                            <label for="name">Recipents Name</label>
+                            <label for="recipient_name">Recipents Name</label>
                             <input type="text" name="recipient_name" class="form-control" placeholder="Recipents Name.">
                             
-                            <label for="name">Recipents Email <span>(optional)</span></label>
-                            <input type="text" name="recipient_email" class="form-control" placeholder="Recipents Email.">
+                           
                         </div>
                     </div>
 
@@ -55,6 +54,11 @@
                             <option value="80">&euro;80</option>
                             <option value="90">&euro;90</option>
                             <option value="100">&euro;100</option>
+                            <option value="100">&euro;110</option>
+                            <option value="100">&euro;120</option>
+                            <option value="100">&euro;130</option>
+                            <option value="100">&euro;140</option>
+                            <option value="100">&euro;150</option>
                         </select>
                         </div>
 

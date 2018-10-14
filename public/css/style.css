@@ -1101,9 +1101,6 @@ p {
 }
 
 #fh5co-offcanvas, #fh5co-container, .fh5co-nav-toggle, #fh5co-footer {
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 
 #fh5co-container, .fh5co-nav-toggle, #fh5co-footer {

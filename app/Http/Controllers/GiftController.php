@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Stripe\Stripe;
 use App\GiftVoucher;
 use Illuminate\Support\Facades\Auth;
+use View;
+// use App\EmailGiftVoucher;
+use PHPMailer\PHPMailer\PHPMailer;
 
 class GiftController extends Controller
 {
@@ -59,7 +62,7 @@ class GiftController extends Controller
         $amount = $request->input('amount');
 
         // stripe take payments in cents, multiple by 100 here
-        // we arent doing them out of money
+        // we arent doing them out of money ;)
         $amount = $amount * 100; 
 
         $charge = \Stripe\Charge::create([
@@ -70,24 +73,79 @@ class GiftController extends Controller
         ]);
 
         // save the gift voucher
-        self::save($request);
-
-        return view('gift.thanks');
-    }
-
-    public function showGiftVoucher($voucher=null){
+        $voucherObj = self::save($request);
 
         $voucher = new \stdClass();
 
-        $voucher->id = "00000001";
-        $voucher->name = 'Ciaran';
-        $voucher->email = 'emailfrom@test.com';
-        $voucher->recipient_name = 'Steve';
-        $voucher->recipient_email = 'test';
-        $voucher->amount = 50;
 
+        $voucher->id = str_pad($voucherObj->id, 10, "0", STR_PAD_LEFT);;
+        $voucher->name = $voucherObj->name;
+        $voucher->email = $voucherObj->email;
+        $voucher->recipient_name = $voucherObj->recipient_name;
+        $voucher->amount = $voucherObj->amount;
+
+        $this->emailVoucher($voucher);
+        
 
         return view('gift.giftvoucher')->with(compact('voucher'));
+
+            
+    }
+
+
+    private function emailVoucher($voucher) {
+
+        $mail = new PHPMailer;
+
+        $mail->Host = 'auth.smtp.1and1.co.uk';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'info@andysmonaghan.com';
+        $mail->Password = env('EMAIL_PASSWORD', '');
+        $mail->SMTPSecure = 'tls';
+        
+        $mail->From = 'info@andysmonaghan.com';
+        $mail->FromName = "Andy's Monaghan";
+        $mail->addAddress($voucher->email);
+        
+        $mail->isHTML(true);
+        
+        $mail->Subject = "Andy's Monaghan: Thank you for your purchase.";
+        $mail->Body    = view('email.email-gift')->with(compact('voucher'));
+        
+        
+        if(!$mail->send()) {
+            $message = 'Message could not be sent.';
+            $message .= 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            
+            $this->sendHostEmailVoucher($voucher);
+        }
+
+    }
+
+    private function sendHostEmailVoucher($voucher) {
+
+        $mail = new PHPMailer;
+
+        $mail->Host = 'auth.smtp.1and1.co.uk';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'info@andysmonaghan.com';
+        $mail->Password = env('EMAIL_PASSWORD', '');
+        $mail->SMTPSecure = 'tls';
+        
+        $mail->From = 'info@andysmonaghan.com';
+        $mail->FromName = "Andy's Monaghan";
+        $mail->addAddress('mccaugheyciaran@gmail.com');
+        // $mail->addAddress('kevinredmondacd@hotmail.com');
+        
+        $mail->isHTML(true);
+        
+        $mail->Subject = 'Voucher has been purchased.';
+        // $mail->Body    = 'test 123';
+        $mail->Body    = view('email.email-gift-host')->with(compact('voucher'));
+        
+        $mail->send();
+
     }
 
     public function save($request=null){
@@ -109,7 +167,8 @@ class GiftController extends Controller
 
             $voucher->save();
 
-            self::showGiftVoucher($voucher);
+            return $voucher;
+
                         
         }
 
@@ -118,8 +177,6 @@ class GiftController extends Controller
     public function redeemVoucher($id){
 
         $voucher = GiftVoucher::find($id);
-        
-        echo '<pre>'; print_r($voucher); exit;
         
     }
 

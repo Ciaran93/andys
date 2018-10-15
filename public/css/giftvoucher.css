@@ -7,3 +7,12 @@
     font-family: 'Oleo Script', cursive;
     font-size: 25px;
   }
+
+
+@media print
+{    
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}

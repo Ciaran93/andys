@@ -125,7 +125,8 @@ class ReservationController extends Controller
         $mail->Username = 'info@andysmonaghan.com';
         $mail->Password = env('EMAIL_PASSWORD', '');
         $mail->SMTPSecure = 'tls';
-        
+
+        $mail->AddReplyTo($request->email);
         $mail->From = 'info@andysmonaghan.com';
         $mail->FromName = "Andy's Monaghan";
         $mail->addAddress('mccaugheyciaran@gmail.com');

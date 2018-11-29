@@ -77,7 +77,6 @@ class GiftController extends Controller
 
         $voucher = new \stdClass();
 
-
         $voucher->id = str_pad($voucherObj->id, 10, "0", STR_PAD_LEFT);;
         $voucher->name = $voucherObj->name;
         $voucher->email = $voucherObj->email;
@@ -85,13 +84,12 @@ class GiftController extends Controller
         $voucher->amount = $voucherObj->amount;
 
         $this->emailVoucher($voucher);
-        
+        $voucher->showPrint = true;
 
         return view('gift.giftvoucher')->with(compact('voucher'));
 
             
     }
-
 
     private function emailVoucher($voucher) {
 
@@ -108,11 +106,11 @@ class GiftController extends Controller
         $mail->addAddress($voucher->email);
         
         $mail->isHTML(true);
+        $voucher->showPrint = false;
         
         $mail->Subject = "Andy's Monaghan: Thank you for your purchase.";
-        $mail->Body    = view('email.email-gift')->with(compact('voucher'));
-        
-        
+        $mail->Body = view('email.email-gift')->with(compact('voucher')) . view('gift.giftvoucher')->with(compact('voucher'));
+
         if(!$mail->send()) {
             $message = 'Message could not be sent.';
             $message .= 'Mailer Error: ' . $mail->ErrorInfo;
@@ -136,12 +134,11 @@ class GiftController extends Controller
         $mail->From = 'info@andysmonaghan.com';
         $mail->FromName = "Andy's Monaghan";
         $mail->addAddress('mccaugheyciaran@gmail.com');
-        // $mail->addAddress('kevinredmondacd@hotmail.com');
+        $mail->addAddress('kevinredmondacd@hotmail.com');
         
         $mail->isHTML(true);
         
         $mail->Subject = 'Voucher has been purchased.';
-        // $mail->Body    = 'test 123';
         $mail->Body    = view('email.email-gift-host')->with(compact('voucher'));
         
         $mail->send();

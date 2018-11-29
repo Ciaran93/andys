@@ -1,10 +1,11 @@
 
 
-
+ @if($voucher->showPrint)
 <div class="no-print col-6">
     <h2>You can print this voucher, don't worry if you lose it, Andy's will have a copy!</h2>
     <button onClick="window.print();">PRINT</button>
 </div>
+@endif
 
 <body>
         <div class="col-6 h-100 gift-card">

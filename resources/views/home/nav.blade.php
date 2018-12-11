@@ -65,7 +65,7 @@
         </div>
         <ul class="slides">
         <li  style="background-image: url('images/andysbar-min.jpg');" data-stellar-background-ratio="1"></li>
-        <!-- <li style="background-image: url('images/andys5-min.jpg');" data-stellar-background-ratio="0.5"></li> -->
+        <li style="background-image: url('images/andys5-min.jpg');" data-stellar-background-ratio="0.5"></li>
         <!--<li style="background-image: url(images/slide_2.jpg);" data-stellar-background-ratio="0.5"></li>-->
         <!--<li style="background-image: url(images/slide_3.jpg);" data-stellar-background-ratio="0.5"></li>-->
         </ul>

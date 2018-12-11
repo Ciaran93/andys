@@ -32,4 +32,19 @@ class HomeController extends Controller
         return view('home',compact('items','about', 'itemsFeatured', 'sections', 'categories', 'showSection'));
     }
 
+    public function showGin() {
+        $showSections = new ShowSectionsController();
+        $showSection = $showSections->getShowSection();
+        return view('gin.gin',compact('gins', 'showSection'));
+
+    }
+
+    public function showBeef() {
+        $showSections = new ShowSectionsController();
+        $showSection = $showSections->getShowSection();
+
+        return view('beef.beef', compact('gins', 'showSection'));
+
+    }
+
 }

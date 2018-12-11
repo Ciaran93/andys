@@ -13,6 +13,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index');
+Route::get('/gin', 'HomeController@showGin');
+Route::get('/beef', 'HomeController@showBeef');
 
 Route::post('/gift/charge', 'GiftController@charge');
 Route::get('/gift/thanks', 'GiftController@showGiftVoucher');
